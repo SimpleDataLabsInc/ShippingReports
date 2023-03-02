@@ -11,3 +11,7 @@ pause the job
 *** Release notes for version: 0.0.3 ***
 
 adds a filter gem to filter RETURNFLAG
+
+*** Release notes for version: 0.0.4 ***
+
+Adds configurable market segment for tracking the shipping orders
