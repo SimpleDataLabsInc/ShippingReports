@@ -15,6 +15,7 @@ def pipeline(spark: SparkSession) -> None:
     df_Where = Where(spark, df_Join)
     df_SumRevenue = SumRevenue(spark, df_Where)
     df_Date = Date(spark, df_SumRevenue)
+    UnshippedOrders(spark, df_Date)
     df_Cleanup = Cleanup(spark, df_Reformat_1)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     df_ByStatus = ByStatus(spark, df_SumAmounts)

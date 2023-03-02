@@ -12,13 +12,14 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-02 20:54:27'
+    modifiedAt: '2023-03-02 21:16:29'
     datasets:
       inputs:
       - datasets/Customer_TPCH
       - datasets/Orders_TPCH
       - datasets/Shipments
       outputs:
+      - datasets/UnshippedOrders
       - datasets/report_shipment_prices
     dependencies: {}
 datasets:
@@ -82,6 +83,21 @@ datasets:
         author: sparklearner123@gmail.com
         createdAt: '2023-02-27 20:51:42'
         modifiedAt: '2023-02-27 20:51:42'
+  datasets/UnshippedOrders:
+    name: UnshippedOrders
+    description: ''
+    author: sparklearner123@gmail.com
+    createdAt: '2023-03-02 21:16:25'
+    modifiedAt: '2023-03-02 21:16:25'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 990
+        datasetType: File
+        description: ''
+        author: sparklearner123@gmail.com
+        createdAt: '2023-03-02 21:16:25'
+        modifiedAt: '2023-03-02 21:16:25'
 templates: {}
 jobs:
   jobs/PricingReportBatchJob:
