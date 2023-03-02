@@ -17,13 +17,6 @@
       "common" : {
         "type" : "record",
         "fields" : [ {
-          "name" : "Database",
-          "kind" : {
-            "type" : "string",
-            "value" : "RETAIL"
-          },
-          "optional" : false
-        }, {
           "name" : "segment",
           "kind" : {
             "type" : "string",
@@ -35,6 +28,13 @@
           "kind" : {
             "type" : "string",
             "value" : "1993-11-13"
+          },
+          "optional" : false
+        }, {
+          "name" : "Database",
+          "kind" : {
+            "type" : "string",
+            "value" : "RETAIL"
           },
           "optional" : false
         } ]
@@ -82,12 +82,6 @@
     "sourcePort" : "zca9-6n3uRVTvW17BxzpW$$4SpoqnUHTkGn405oFIYo-",
     "target" : "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui",
     "targetPort" : "i4Lzlxqq47UhSnLrbcunn$$6X1vKo37fktqYdz9ix0ld"
-  }, {
-    "id" : "s8VtJmt5CJvNfj-EeV0NW",
-    "source" : "kCZLzEmPWiSwwbhB_mKzs$$GJMGB6OmO4z_1zwJb8hCa",
-    "sourcePort" : "KV24DPOw7wk1IriVmzSoT$$PIBGMnRpgqj8di8pqDf-n",
-    "target" : "XbQemawk8SvVVT_NIJIz3$$b2HjXE32eEd6-RqbFDF0s",
-    "targetPort" : "U9KTjm-i6G0JVYgiB6Jw-$$_K982h-KqNJvhTAQfoxYq"
   }, {
     "id" : "Gt_ArzcR_PGq_EehvYBB-",
     "source" : "bTTW0Lm8B3PX-CV99ShIi$$10QTtfEABkST4dERD7BK2",
@@ -283,145 +277,6 @@
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
-      }
-    },
-    "XbQemawk8SvVVT_NIJIz3$$b2HjXE32eEd6-RqbFDF0s" : {
-      "id" : "XbQemawk8SvVVT_NIJIz3$$b2HjXE32eEd6-RqbFDF0s",
-      "component" : "Subgraph",
-      "metadata" : {
-        "label" : "AggregateLogic",
-        "slug" : "AggregateLogic",
-        "x" : 520,
-        "y" : -20,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "U9KTjm-i6G0JVYgiB6Jw-$$_K982h-KqNJvhTAQfoxYq",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "A_0lj5vlU48axA2odKHz-$$ZUVwLWrCGKDGdlTy0MgEP",
-          "slug" : "out0",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : { },
-      "connections" : [ {
-        "id" : "nStfZMIjDBwhF00ynRV87",
-        "source" : "XbQemawk8SvVVT_NIJIz3$$b2HjXE32eEd6-RqbFDF0s",
-        "sourcePort" : "U9KTjm-i6G0JVYgiB6Jw-$$_K982h-KqNJvhTAQfoxYq",
-        "target" : "zEpZdxLQLo8WuHEgQPoYd$$Kly_beW_UJA_dCoYcVaJf",
-        "targetPort" : "TZDtkFI-TicthE6YclHVg$$q2db7T46X3hjduV7PeZn1"
-      }, {
-        "id" : "IbVEmvrOT0OvV-oYmfwgm",
-        "source" : "zEpZdxLQLo8WuHEgQPoYd$$Kly_beW_UJA_dCoYcVaJf",
-        "sourcePort" : "XaiGsBT__x44JfAoQ_8vF$$zJyuriOkFC6Zhsk9Bg-Hg",
-        "target" : "XbQemawk8SvVVT_NIJIz3$$b2HjXE32eEd6-RqbFDF0s",
-        "targetPort" : "A_0lj5vlU48axA2odKHz-$$ZUVwLWrCGKDGdlTy0MgEP"
-      } ],
-      "processes" : {
-        "zEpZdxLQLo8WuHEgQPoYd$$Kly_beW_UJA_dCoYcVaJf" : {
-          "id" : "zEpZdxLQLo8WuHEgQPoYd$$Kly_beW_UJA_dCoYcVaJf",
-          "component" : "Aggregate",
-          "metadata" : {
-            "label" : "SumAmounts_1",
-            "slug" : "SumAmounts_1",
-            "x" : 100,
-            "y" : 360,
-            "phase" : 0,
-            "cache" : false,
-            "detailedStats" : false,
-            "isImported" : false
-          },
-          "ports" : {
-            "inputs" : [ {
-              "id" : "TZDtkFI-TicthE6YclHVg$$q2db7T46X3hjduV7PeZn1",
-              "slug" : "in0",
-              "isStreaming" : false
-            } ],
-            "outputs" : [ {
-              "id" : "XaiGsBT__x44JfAoQ_8vF$$zJyuriOkFC6Zhsk9Bg-Hg",
-              "slug" : "out",
-              "isStreaming" : false
-            } ],
-            "selectedInputFields" : [ ],
-            "isCustomOutputSchema" : false
-          },
-          "properties" : {
-            "allIns" : false,
-            "doPivot" : false,
-            "aggregate" : [ {
-              "target" : "SUM_QTY",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "sum(QUANTITY) "
-              },
-              "description" : "",
-              "_row_id" : ""
-            }, {
-              "target" : "AVG_QTY",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "format_number(avg(QUANTITY), 2)"
-              },
-              "description" : "",
-              "_row_id" : ""
-            }, {
-              "target" : "SUM_CHARGE",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "format_number(sum(EXTENDEDPRICE * (1 - DISCOUNT) * (1 + TAX)), 2)"
-              },
-              "description" : "",
-              "_row_id" : ""
-            }, {
-              "target" : "COUNT_ORDER",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "count(*)"
-              },
-              "description" : "",
-              "_row_id" : ""
-            }, {
-              "target" : "COUNT_CLEARANCE",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "count_if(CLEARANCE == 'true')"
-              },
-              "description" : "",
-              "_row_id" : ""
-            } ],
-            "allowSelection" : true,
-            "pivotColumn" : null,
-            "pivotValues" : [ ],
-            "activeTab" : "groupBy",
-            "columnsSelector" : [ ],
-            "groupBy" : [ {
-              "target" : "RETURNFLAG",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "RETURNFLAG"
-              },
-              "description" : "",
-              "_row_id" : null
-            }, {
-              "target" : "DELIVERYSTATUS",
-              "expression" : {
-                "format" : "sql",
-                "expression" : "DELIVERYSTATUS"
-              },
-              "description" : "",
-              "_row_id" : null
-            } ]
-          }
-        }
       }
     },
     "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui" : {

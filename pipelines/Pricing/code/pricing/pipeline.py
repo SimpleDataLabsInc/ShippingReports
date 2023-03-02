@@ -16,7 +16,6 @@ def pipeline(spark: SparkSession) -> None:
     df_SumRevenue = SumRevenue(spark, df_Where)
     df_Date = Date(spark, df_SumRevenue)
     df_Cleanup = Cleanup(spark, df_Reformat_1)
-    df_AggregateLogic = AggregateLogic(spark, df_Cleanup)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     df_ByStatus = ByStatus(spark, df_SumAmounts)
     ReportPrices(spark, df_ByStatus)

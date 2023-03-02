@@ -1,5 +1,4 @@
 {
-  "Database" : "FEEDSTOCKS",
-  "segment" : "BUILDING",
+  "segment" : "AUTOMOBILE",
   "datestring" : "foo_date"
 }

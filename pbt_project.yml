@@ -12,6 +12,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
+    modifiedAt: '2023-03-02 20:54:27'
     datasets:
       inputs:
       - datasets/Customer_TPCH
@@ -26,6 +27,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:05:07'
+    modifiedAt: '2022-12-08 21:05:07'
     mode: batch
     physicalDatasets:
       dev:
@@ -34,11 +36,13 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2022-12-08 21:05:07'
+        modifiedAt: '2022-12-08 21:05:07'
   datasets/report_shipment_prices:
     name: report_shipment_prices
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:12:16'
+    modifiedAt: '2022-12-08 21:12:16'
     mode: batch
     physicalDatasets:
       dev:
@@ -47,11 +51,13 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2022-12-08 21:12:16'
+        modifiedAt: '2022-12-08 21:12:16'
   datasets/Orders_TPCH:
     name: Orders_TPCH
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-02-25 01:28:30'
+    modifiedAt: '2023-02-25 01:28:30'
     mode: batch
     physicalDatasets:
       dev:
@@ -60,11 +66,13 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-02-25 01:28:30'
+        modifiedAt: '2023-02-25 01:28:30'
   datasets/Customer_TPCH:
     name: Customer_TPCH
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-02-27 20:51:42'
+    modifiedAt: '2023-02-27 20:51:42'
     mode: batch
     physicalDatasets:
       dev:
@@ -73,6 +81,7 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-02-27 20:51:42'
+        modifiedAt: '2023-02-27 20:51:42'
 templates: {}
 jobs:
   jobs/PricingReportBatchJob:
@@ -98,6 +107,7 @@ jobs:
       clusterId: null
     enabled: false
     createdAt: '2022-12-08 21:21:01'
+    modifiedAt: '2022-12-08 21:21:01'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
