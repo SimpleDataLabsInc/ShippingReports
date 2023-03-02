@@ -19,3 +19,7 @@ Adds configurable market segment for tracking the shipping orders
 *** Release notes for version: 0.0.5 ***
 
 updated configurations for each segment
+
+*** Release notes for version: 0.0.6 ***
+
+update configs
