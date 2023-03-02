@@ -37,6 +37,13 @@
             "value" : "RETAIL"
           },
           "optional" : false
+        }, {
+          "name" : "path_helper",
+          "kind" : {
+            "type" : "string",
+            "value" : "Path1"
+          },
+          "optional" : false
         } ]
       },
       "oldCommon" : {
@@ -45,7 +52,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "Machinery",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
