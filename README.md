@@ -23,3 +23,7 @@ updated configurations for each segment
 *** Release notes for version: 0.0.6 ***
 
 update configs
+
+*** Release notes for version: 0.0.7 ***
+
+adds a path to target gems
