@@ -27,3 +27,7 @@ update configs
 *** Release notes for version: 0.0.7 ***
 
 adds a path to target gems
+
+*** Release notes for version: 1.0.6 ***
+
+adds segment and path_helper configurable variables
