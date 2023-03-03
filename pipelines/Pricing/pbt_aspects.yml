@@ -1,9 +1,6 @@
 version: 1
 configurations:
-- Machinery
-- Automobile
-- Furniture
 - default
-- Household
-- Building
+- Set1
+- Set2
 dependencies: []

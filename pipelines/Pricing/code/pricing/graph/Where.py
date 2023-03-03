@@ -9,6 +9,6 @@ def Where(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.filter(
         (
           (((col("C_MKTSEGMENT") == lit(Config.segment)) & (col("C_CUSTKEY") == col("O_CUSTKEY"))) & (col("L_ORDERKEY") == col("O_ORDERKEY")))
-          & ((col("O_ORDERDATE") < lit(Config.datestring)) & (col("L_SHIPDATE") < lit(Config.datestring)))
+          & ((col("O_ORDERDATE") < lit("1995-03-15")) & (col("L_SHIPDATE") < lit("1995-03-15")))
         )
     )
