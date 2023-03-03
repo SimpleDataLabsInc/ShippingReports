@@ -5,7 +5,7 @@ from prophecy.libs import typed_lit
 from pricing.config.ConfigStore import *
 from pricing.udfs.UDFs import *
 
-def Orders_TPCH(spark: SparkSession) -> DataFrame:
+def Orders(spark: SparkSession) -> DataFrame:
     return spark.read\
         .schema(
           StructType([

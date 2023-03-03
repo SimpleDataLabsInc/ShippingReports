@@ -20,14 +20,14 @@
           "name" : "segment",
           "kind" : {
             "type" : "string",
-            "value" : "AUTOMOBILE"
+            "value" : "MACHINERY"
           },
           "optional" : false
         }, {
-          "name" : "path_helper",
+          "name" : "my_expression",
           "kind" : {
-            "type" : "string",
-            "value" : "Path0"
+            "type" : "spark_expression",
+            "value" : "!equal_null(C_CUSTKEY, O_ORDERKEY)"
           },
           "optional" : false
         } ]
@@ -38,7 +38,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "Set2",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -124,21 +124,27 @@
     "target" : "kCZLzEmPWiSwwbhB_mKzs$$GJMGB6OmO4z_1zwJb8hCa",
     "targetPort" : "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT"
   }, {
-    "id" : "t57kzaqQnyL8-DgpgVB21$$KiRYggVQa2Fj9uuYI1uOT",
+    "id" : "3rUIu-m5PJ4Cclqpg2ZBR",
     "source" : "_AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb",
     "sourcePort" : "fXiKV2owG3g6tBWasx196$$OBkyVEHUz_GrIKUiIj7X_",
-    "target" : "RejeOy4YbwySq_sNTe4_3$$lkVQGk8UM6G8BLNLVXJCE",
-    "targetPort" : "9uJ_sDZ5kI-kD43Gb-SCd$$YyH-vLVanFK_rwltm2zLr"
+    "target" : "gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc",
+    "targetPort" : "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB"
+  }, {
+    "id" : "9lWrsWbBWK1AQwglQFOEw",
+    "source" : "gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc",
+    "sourcePort" : "b8sOnKA33x4GumGIAWGG4$$jbzx3gYeK7xFT9jz3FEgq",
+    "target" : "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4",
+    "targetPort" : "PYoq5tuPPz8Yx0EjwjxQG$$L65bMUv0Y7KzW_aHzWo-e"
   } ],
   "processes" : {
     "VZ7ZpeitwL-kfEnoNGVGy$$yuHDuRnNrIKiPBmUAJgPs" : {
       "id" : "VZ7ZpeitwL-kfEnoNGVGy$$yuHDuRnNrIKiPBmUAJgPs",
       "component" : "Source",
       "metadata" : {
-        "label" : "Customer_TPCH",
-        "slug" : "Customer_TPCH",
-        "x" : 540,
-        "y" : 380,
+        "label" : "Customer",
+        "slug" : "Customer",
+        "x" : 500,
+        "y" : 460,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -164,7 +170,7 @@
       "metadata" : {
         "label" : "Date",
         "slug" : "Date",
-        "x" : 1400,
+        "x" : 1280,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -208,7 +214,7 @@
       "metadata" : {
         "label" : "Join",
         "slug" : "Join",
-        "x" : 740,
+        "x" : 680,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -278,13 +284,13 @@
         "headAlias" : "in0"
       }
     },
-    "RejeOy4YbwySq_sNTe4_3$$lkVQGk8UM6G8BLNLVXJCE" : {
-      "id" : "RejeOy4YbwySq_sNTe4_3$$lkVQGk8UM6G8BLNLVXJCE",
-      "component" : "Target",
+    "gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc" : {
+      "id" : "gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc",
+      "component" : "Reformat",
       "metadata" : {
-        "label" : "UnshippedOrders",
-        "slug" : "UnshippedOrders",
-        "x" : 1600,
+        "label" : "ColNames",
+        "slug" : "ColNames",
+        "x" : 1460,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -293,16 +299,59 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "9uJ_sDZ5kI-kD43Gb-SCd$$YyH-vLVanFK_rwltm2zLr",
+          "id" : "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB",
           "slug" : "in0",
           "isStreaming" : false
         } ],
-        "outputs" : [ ],
+        "outputs" : [ {
+          "id" : "b8sOnKA33x4GumGIAWGG4$$jbzx3gYeK7xFT9jz3FEgq",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
       },
       "properties" : {
-        "datasetId" : "datasets/UnshippedOrders"
+        "importLanguage" : "python",
+        "expressions" : [ {
+          "target" : "MKTSEGMENT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "C_MKTSEGMENT"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDERKEY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "L_ORDERKEY"
+          },
+          "description" : ""
+        }, {
+          "target" : "ORDERDATE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "O_ORDERDATE"
+          },
+          "description" : ""
+        }, {
+          "target" : "SHIP_PRIORITY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "`O_SHIP-PRIORITY`"
+          },
+          "description" : ""
+        }, {
+          "target" : "REVENUE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "REVENUE"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##L_ORDERKEY", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##REVENUE", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##C_MKTSEGMENT", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##O_ORDERDATE", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##O_SHIP-PRIORITY" ]
       }
     },
     "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui" : {
@@ -431,8 +480,8 @@
       "id" : "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "Reformat_1",
-        "slug" : "Reformat_1",
+        "label" : "Reformat",
+        "slug" : "Reformat",
         "x" : 560,
         "y" : -20,
         "phase" : 0,
@@ -574,6 +623,33 @@
         "columnsSelector" : [ "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##COMMITDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##DISCOUNT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##RECEIPTDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##PARTKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##COMMENT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##LINENUMBER", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##ORDERKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##RETURNFLAG", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##DELIVERYSTATUS", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPINSTRUCT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SUPPKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##QUANTITY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##EXTENDEDPRICE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPMODE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##TAX" ]
       }
     },
+    "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4" : {
+      "id" : "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "Unshipped",
+        "slug" : "Unshipped",
+        "x" : 1620,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PYoq5tuPPz8Yx0EjwjxQG$$L65bMUv0Y7KzW_aHzWo-e",
+          "slug" : "in0",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Unshipped"
+      }
+    },
     "eMKsxsutBgJHSGSDjGAZY$$zGdMXBaPj9GzwoOCIyVEl" : {
       "id" : "eMKsxsutBgJHSGSDjGAZY$$zGdMXBaPj9GzwoOCIyVEl",
       "component" : "OrderBy",
@@ -624,7 +700,7 @@
       "metadata" : {
         "label" : "SumRevenue",
         "slug" : "SumRevenue",
-        "x" : 1180,
+        "x" : 1100,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -652,7 +728,7 @@
           "target" : "REVENUE",
           "expression" : {
             "format" : "sql",
-            "expression" : "SUM(L_EXTENDEDPRICE *(1-L_DISCOUNT))"
+            "expression" : "cast(SUM(L_EXTENDEDPRICE *(1-L_DISCOUNT)) as decimal(34,2))"
           },
           "description" : "",
           "_row_id" : ""
@@ -703,7 +779,7 @@
       "metadata" : {
         "label" : "Where",
         "slug" : "Where",
-        "x" : 960,
+        "x" : 880,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -719,16 +795,317 @@
         "outputs" : [ {
           "id" : "4YUuEWSFiq7aOk3XAnH5z$$Wt6dlaE7lvYTupAxlKkXU",
           "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "L_ORDERKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_PARTKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_SUPPKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_LINENUMBER",
+              "type" : "decimal(38,0)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_RETURNFLAG",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_SHIPDATE",
+              "type" : "date",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_COMMITDATE",
+              "type" : "date",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_RECEIPTDATE",
+              "type" : "date",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_SHIPINSTRUCT",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_SHIPMODE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "L_COMMENT",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_TOTALPRICE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDER-PRIORITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_CLERK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_SHIP-PRIORITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_COMMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_ADDRESS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_NATIONKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_PHONE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_ACCTBAL",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_MKTSEGMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_COMMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : true
       },
       "properties" : {
-        "columnsSelector" : [ "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##L_ORDERKEY", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##O_ORDERDATE", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##L_SHIPDATE", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##C_CUSTKEY", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##O_ORDERKEY", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##O_CUSTKEY", "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##C_MKTSEGMENT" ],
+        "columnsSelector" : [ "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##C_MKTSEGMENT" ],
         "condition" : {
           "format" : "sql",
-          "expression" : "C_MKTSEGMENT = '$segment' and C_CUSTKEY = O_CUSTKEY and \nL_ORDERKEY = O_ORDERKEY and O_ORDERDATE < '1995-03-15'and \nL_SHIPDATE < '1995-03-15'\n"
+          "expression" : "C_MKTSEGMENT = '$segment'\n\nand expr('$my_expression')\n\n\n"
         }
       }
     },
@@ -736,10 +1113,10 @@
       "id" : "bTTW0Lm8B3PX-CV99ShIi$$10QTtfEABkST4dERD7BK2",
       "component" : "Source",
       "metadata" : {
-        "label" : "Orders_TPCH",
-        "slug" : "Orders_TPCH",
-        "x" : 540,
-        "y" : 180,
+        "label" : "Orders",
+        "slug" : "Orders",
+        "x" : 300,
+        "y" : 200,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,

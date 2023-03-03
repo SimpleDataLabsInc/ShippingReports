@@ -2,43 +2,36 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: C_MKTSEGMENT
+  - name: MKTSEGMENT
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: L_ORDERKEY
+  - name: ORDERKEY
     type: decimal(38,0)
     nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: O_ORDERDATE
+  - name: ORDERDATE
     type: date
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: O_SHIP-PRIORITY
+  - name: SHIP_PRIORITY
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: C_CUSTKEY
-    type: binary
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
   - name: REVENUE
-    type: decimal(36,4)
+    type: decimal(34,2)
     nullable: true
     metadata:
       description: ''

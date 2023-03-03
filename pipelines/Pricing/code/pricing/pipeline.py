@@ -7,19 +7,20 @@ from prophecy.utils import *
 from pricing.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_Customer_TPCH = Customer_TPCH(spark)
-    df_Orders_TPCH = Orders_TPCH(spark)
+    df_Customer = Customer(spark)
+    df_Orders = Orders(spark)
     df_Shipments = Shipments(spark)
-    df_Reformat_1 = Reformat_1(spark, df_Shipments)
-    df_Join = Join(spark, df_Reformat_1, df_Orders_TPCH, df_Customer_TPCH)
+    df_Reformat = Reformat(spark, df_Shipments)
+    df_Join = Join(spark, df_Reformat, df_Orders, df_Customer)
     df_Where = Where(spark, df_Join)
     df_SumRevenue = SumRevenue(spark, df_Where)
     df_Date = Date(spark, df_SumRevenue)
-    UnshippedOrders(spark, df_Date)
-    df_Cleanup = Cleanup(spark, df_Reformat_1)
+    df_ColNames = ColNames(spark, df_Date)
+    df_Cleanup = Cleanup(spark, df_Reformat)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     df_ByStatus = ByStatus(spark, df_SumAmounts)
     ReportPrices(spark, df_ByStatus)
+    Unshipped(spark, df_ColNames)
 
 def main():
     spark = SparkSession.builder\

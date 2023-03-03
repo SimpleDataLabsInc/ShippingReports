@@ -5,7 +5,7 @@ from prophecy.libs import typed_lit
 from pricing.config.ConfigStore import *
 from pricing.udfs.UDFs import *
 
-def Reformat_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def Reformat(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
         col("ORDERKEY").alias("L_ORDERKEY"), 
         col("PARTKEY").alias("L_PARTKEY"), 
