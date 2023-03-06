@@ -1,5 +1,5 @@
 version: 1
 configurations:
-- default
 - Set1
+- default
 dependencies: []

@@ -6,4 +6,4 @@ from pricing.config.ConfigStore import *
 from pricing.udfs.UDFs import *
 
 def Where(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0.filter(((col("C_MKTSEGMENT") == lit(Config.segment)) & expr(Config.my_expression)))
+    return in0.filter((col("C_MKTSEGMENT") == lit("AUTOMOBILE")))

@@ -38,7 +38,7 @@ schema:
       mappings: []
       tags: []
   - name: C_ACCTBAL
-    type: string
+    type: decimal(20,10)
     nullable: true
     metadata:
       description: ''

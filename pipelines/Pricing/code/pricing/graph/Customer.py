@@ -9,7 +9,7 @@ def Customer(spark: SparkSession) -> DataFrame:
     return spark.read\
         .schema(
           StructType([
-            StructField("C_CUSTKEY", StringType(), True), StructField("C_NAME", StringType(), True), StructField("C_ADDRESS", StringType(), True), StructField("C_NATIONKEY", StringType(), True), StructField("C_PHONE", StringType(), True), StructField("C_ACCTBAL", StringType(), True), StructField("C_MKTSEGMENT", StringType(), True), StructField("C_COMMENT", StringType(), True)
+            StructField("C_CUSTKEY", StringType(), True), StructField("C_NAME", StringType(), True), StructField("C_ADDRESS", StringType(), True), StructField("C_NATIONKEY", StringType(), True), StructField("C_PHONE", StringType(), True), StructField("C_ACCTBAL", DecimalType(20, 10), True), StructField("C_MKTSEGMENT", StringType(), True), StructField("C_COMMENT", StringType(), True)
         ])
         )\
         .option("header", False)\

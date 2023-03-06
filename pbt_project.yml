@@ -12,7 +12,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-03 22:31:10'
+    modifiedAt: '2023-03-06 21:17:13'
     datasets:
       inputs:
       - datasets/Customer_TPCH
@@ -73,7 +73,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-02-27 20:51:42'
-    modifiedAt: '2023-02-27 20:51:42'
+    modifiedAt: '2023-03-06 17:01:45'
     mode: batch
     physicalDatasets:
       dev:
@@ -179,6 +179,31 @@ jobs:
     enabled: null
     createdAt: '2023-03-03 16:49:18'
     modifiedAt: '2023-03-03 16:50:02'
+    author: sparklearner123@gmail.com
+  jobs/UnshippedItems:
+    name: UnshippedItems
+    description: ''
+    fabricUID: 990
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 1/1 * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/Pricing
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2023-03-03 22:33:13'
+    modifiedAt: '2023-03-03 22:33:47'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}

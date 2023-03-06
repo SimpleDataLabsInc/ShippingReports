@@ -4,13 +4,17 @@ prophecy_spark_context = None
 
 class Config(ConfigBase):
 
-    def __init__(self, segment: str=None, my_expression: str=None):
+    def __init__(self, encrypt_logic: str=None, tax_logic: str=None):
         self.spark = None
-        self.update(segment, my_expression)
+        self.update(encrypt_logic, tax_logic)
 
-    def update(self, segment: str="MACHINERY", my_expression: str="!equal_null(C_CUSTKEY, O_ORDERKEY)"):
+    def update(
+            self,
+            encrypt_logic: str="aes_encrypt(COMMENT, '1234567890123456')", 
+            tax_logic: str="cast(if(TAX == 0, 0.02, TAX) as decimal(12,2))"
+    ):
         global prophecy_spark_context
         prophecy_spark_context = self.spark
-        self.segment = segment
-        self.my_expression = my_expression
+        self.encrypt_logic = encrypt_logic
+        self.tax_logic = tax_logic
         pass

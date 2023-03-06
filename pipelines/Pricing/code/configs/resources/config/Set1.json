@@ -1,4 +1,1 @@
-{
-  "segment" : "FURNITURE",
-  "my_expression" : "equal_null(C_CUSTKEY, O_ORDERKEY)"
-}
+{ }

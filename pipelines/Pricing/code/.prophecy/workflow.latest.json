@@ -17,17 +17,17 @@
       "common" : {
         "type" : "record",
         "fields" : [ {
-          "name" : "segment",
+          "name" : "encrypt_logic",
           "kind" : {
-            "type" : "string",
-            "value" : "MACHINERY"
+            "type" : "spark_expression",
+            "value" : "aes_encrypt(COMMENT, '1234567890123456')"
           },
           "optional" : false
         }, {
-          "name" : "my_expression",
+          "name" : "tax_logic",
           "kind" : {
             "type" : "spark_expression",
-            "value" : "!equal_null(C_CUSTKEY, O_ORDERKEY)"
+            "value" : "cast(if(TAX == 0, 0.02, TAX) as decimal(12,2))"
           },
           "optional" : false
         } ]
@@ -53,7 +53,7 @@
     "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
       "enabled" : true,
-      "value" : 100000
+      "value" : 100
     },
     "topLevelPackage" : "pricing"
   },
@@ -106,24 +106,6 @@
     "target" : "_AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb",
     "targetPort" : "1_hIr_TQoGBIe3R38QWJz$$PvqZ7h_h8EDCrmOLDt47k"
   }, {
-    "id" : "e7phaslSBaWgUI5j2j3vf",
-    "source" : "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD",
-    "sourcePort" : "rx5Yf38R-Lq0XRrh1SuUR$$toPX_eZo2xWOmO45w84If",
-    "target" : "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI",
-    "targetPort" : "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD"
-  }, {
-    "id" : "P94bywfhO6F5oSy4WGhEF",
-    "source" : "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI",
-    "sourcePort" : "LkwKwTwjElII-K26gt0oU$$fRVS3_6ufHkigmXXysiqn",
-    "target" : "jdR7nZu03GWqYbx_vy_P2$$d4PL_FcSI-CivJW1pco-E",
-    "targetPort" : "HXcAGaSPE9M90F7M1QvEy$$iuCwu9YI5AKQSpwTEEj8Z"
-  }, {
-    "id" : "14aruK0lme-o9acceN-KR",
-    "source" : "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI",
-    "sourcePort" : "LkwKwTwjElII-K26gt0oU$$fRVS3_6ufHkigmXXysiqn",
-    "target" : "kCZLzEmPWiSwwbhB_mKzs$$GJMGB6OmO4z_1zwJb8hCa",
-    "targetPort" : "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT"
-  }, {
     "id" : "3rUIu-m5PJ4Cclqpg2ZBR",
     "source" : "_AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb",
     "sourcePort" : "fXiKV2owG3g6tBWasx196$$OBkyVEHUz_GrIKUiIj7X_",
@@ -135,6 +117,12 @@
     "sourcePort" : "b8sOnKA33x4GumGIAWGG4$$jbzx3gYeK7xFT9jz3FEgq",
     "target" : "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4",
     "targetPort" : "PYoq5tuPPz8Yx0EjwjxQG$$L65bMUv0Y7KzW_aHzWo-e"
+  }, {
+    "id" : "TaBambO9lWkGDRo0d-QiR",
+    "source" : "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD",
+    "sourcePort" : "rx5Yf38R-Lq0XRrh1SuUR$$toPX_eZo2xWOmO45w84If",
+    "target" : "kCZLzEmPWiSwwbhB_mKzs$$GJMGB6OmO4z_1zwJb8hCa",
+    "targetPort" : "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT"
   } ],
   "processes" : {
     "VZ7ZpeitwL-kfEnoNGVGy$$yuHDuRnNrIKiPBmUAJgPs" : {
@@ -143,8 +131,8 @@
       "metadata" : {
         "label" : "Customer",
         "slug" : "Customer",
-        "x" : 500,
-        "y" : 460,
+        "x" : -180,
+        "y" : 2420,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -170,8 +158,8 @@
       "metadata" : {
         "label" : "Date",
         "slug" : "Date",
-        "x" : 1280,
-        "y" : 220,
+        "x" : 660,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -180,19 +168,17 @@
       "ports" : {
         "inputs" : [ {
           "id" : "1_hIr_TQoGBIe3R38QWJz$$PvqZ7h_h8EDCrmOLDt47k",
-          "slug" : "in0",
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ {
           "id" : "fXiKV2owG3g6tBWasx196$$OBkyVEHUz_GrIKUiIj7X_",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
       },
       "properties" : {
-        "columnsSelector" : [ "1_hIr_TQoGBIe3R38QWJz$$PvqZ7h_h8EDCrmOLDt47k##O_ORDERDATE", "1_hIr_TQoGBIe3R38QWJz$$PvqZ7h_h8EDCrmOLDt47k##REVENUE" ],
+        "columnsSelector" : [ ],
         "orders" : [ {
           "expression" : {
             "format" : "sql",
@@ -214,8 +200,8 @@
       "metadata" : {
         "label" : "Join",
         "slug" : "Join",
-        "x" : 680,
-        "y" : 220,
+        "x" : 40,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -223,10 +209,6 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "HXcAGaSPE9M90F7M1QvEy$$iuCwu9YI5AKQSpwTEEj8Z",
-          "slug" : "in0",
-          "isStreaming" : false
-        }, {
           "id" : "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL",
           "slug" : "in1",
           "isStreaming" : false
@@ -237,21 +219,13 @@
         } ],
         "outputs" : [ {
           "id" : "-UkdlfW7e8ElCZBr07aeT$$veHi6QlESFs_j2MgOA-Pv",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
       },
       "properties" : {
         "conditions" : [ {
-          "alias" : "in1",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.L_ORDERKEY=in1.O_ORDERKEY"
-          },
-          "joinType" : "inner"
-        }, {
           "alias" : "in2",
           "expression" : {
             "format" : "sql",
@@ -261,11 +235,6 @@
         } ],
         "expressions" : [ ],
         "hints" : [ {
-          "id" : "HXcAGaSPE9M90F7M1QvEy$$iuCwu9YI5AKQSpwTEEj8Z",
-          "alias" : "in0",
-          "hintType" : "none",
-          "propagateColumns" : false
-        }, {
           "id" : "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL",
           "alias" : "in1",
           "hintType" : "none",
@@ -278,10 +247,10 @@
         } ],
         "allIn1" : null,
         "activeTab" : "conditions",
-        "columnsSelector" : [ "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL##O_CUSTKEY", "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL##O_ORDERKEY", "SyeFta4yNWh_tq2_aadVc$$ZmjyXy09p6p0dQLUc4ljX##C_CUSTKEY", "HXcAGaSPE9M90F7M1QvEy$$iuCwu9YI5AKQSpwTEEj8Z##L_ORDERKEY" ],
+        "columnsSelector" : [ "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL##O_ORDERKEY", "yQ9SAmTgKw9proznEkXmw$$MwwhAF95aRotSWYLf9eWL##O_CUSTKEY", "SyeFta4yNWh_tq2_aadVc$$ZmjyXy09p6p0dQLUc4ljX##C_CUSTKEY" ],
         "allIn0" : null,
         "whereClause" : null,
-        "headAlias" : "in0"
+        "headAlias" : "in1"
       }
     },
     "gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc" : {
@@ -290,8 +259,8 @@
       "metadata" : {
         "label" : "ColNames",
         "slug" : "ColNames",
-        "x" : 1460,
-        "y" : 220,
+        "x" : 880,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -300,13 +269,11 @@
       "ports" : {
         "inputs" : [ {
           "id" : "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB",
-          "slug" : "in0",
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ {
           "id" : "b8sOnKA33x4GumGIAWGG4$$jbzx3gYeK7xFT9jz3FEgq",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
@@ -351,7 +318,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##L_ORDERKEY", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##REVENUE", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##C_MKTSEGMENT", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##O_ORDERDATE", "71UfXb7R4DUUKSFi_LJva$$g6RBFjO51xlxyvZDk8xOB##O_SHIP-PRIORITY" ]
+        "columnsSelector" : [ ]
       }
     },
     "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui" : {
@@ -360,8 +327,8 @@
       "metadata" : {
         "label" : "ReportPrices",
         "slug" : "ReportPrices",
-        "x" : 1400,
-        "y" : -20,
+        "x" : 960,
+        "y" : 520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -387,8 +354,8 @@
       "metadata" : {
         "label" : "SumAmounts",
         "slug" : "SumAmounts",
-        "x" : 980,
-        "y" : -20,
+        "x" : 540,
+        "y" : 520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -476,161 +443,14 @@
         } ]
       }
     },
-    "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI" : {
-      "id" : "pgGRkfrdfH_Etgmt5Iro1$$5R1iML8DAwwTcZVcJw3LI",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "Reformat",
-        "slug" : "Reformat",
-        "x" : 560,
-        "y" : -20,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "LkwKwTwjElII-K26gt0oU$$fRVS3_6ufHkigmXXysiqn",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "importLanguage" : "python",
-        "expressions" : [ {
-          "target" : "L_ORDERKEY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "ORDERKEY"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_PARTKEY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "PARTKEY"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_SUPPKEY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "SUPPKEY"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_LINENUMBER",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "LINENUMBER"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_QUANTITY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "QUANTITY"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_EXTENDEDPRICE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "EXTENDEDPRICE"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_DISCOUNT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DISCOUNT"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_TAX",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "TAX"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_RETURNFLAG",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_DELIVERYSTATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_SHIPDATE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "SHIPDATE"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_COMMITDATE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "COMMITDATE"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_RECEIPTDATE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RECEIPTDATE"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_SHIPINSTRUCT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "SHIPINSTRUCT"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_SHIPMODE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "SHIPMODE"
-          },
-          "description" : ""
-        }, {
-          "target" : "L_COMMENT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "COMMENT"
-          },
-          "description" : ""
-        } ],
-        "importString" : "",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##COMMITDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##DISCOUNT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##RECEIPTDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##PARTKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##COMMENT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##LINENUMBER", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPDATE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##ORDERKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##RETURNFLAG", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##DELIVERYSTATUS", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPINSTRUCT", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SUPPKEY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##QUANTITY", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##EXTENDEDPRICE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##SHIPMODE", "4KqPm05cOxgPxXRppFaVE$$HYomiP0EvcASgBB5EoWVD##TAX" ]
-      }
-    },
     "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4" : {
       "id" : "ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4",
       "component" : "Target",
       "metadata" : {
         "label" : "Unshipped",
         "slug" : "Unshipped",
-        "x" : 1620,
-        "y" : 220,
+        "x" : 1100,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -639,8 +459,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "PYoq5tuPPz8Yx0EjwjxQG$$L65bMUv0Y7KzW_aHzWo-e",
-          "slug" : "in0",
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
@@ -656,8 +475,8 @@
       "metadata" : {
         "label" : "ByStatus",
         "slug" : "ByStatus",
-        "x" : 1180,
-        "y" : -20,
+        "x" : 760,
+        "y" : 520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -700,8 +519,8 @@
       "metadata" : {
         "label" : "SumRevenue",
         "slug" : "SumRevenue",
-        "x" : 1100,
-        "y" : 220,
+        "x" : 460,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -710,13 +529,11 @@
       "ports" : {
         "inputs" : [ {
           "id" : "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw",
-          "slug" : "in0",
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ {
           "id" : "Mgd4zQ1Kfsd2q5r7BXT4a$$IGtKT6YWS7we4lUNjaadw",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
@@ -737,7 +554,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##L_DISCOUNT", "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##L_EXTENDEDPRICE", "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##O_ORDERDATE", "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##C_MKTSEGMENT", "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##L_ORDERKEY", "OVA4yHFaW5lna6qnzhEz1$$KIKT_7ycxRm6BqNruaXbw##O_SHIP-PRIORITY" ],
+        "columnsSelector" : [ ],
         "groupBy" : [ {
           "target" : "C_MKTSEGMENT",
           "expression" : {
@@ -779,8 +596,8 @@
       "metadata" : {
         "label" : "Where",
         "slug" : "Where",
-        "x" : 880,
-        "y" : 220,
+        "x" : 240,
+        "y" : 2320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -789,8 +606,7 @@
       "ports" : {
         "inputs" : [ {
           "id" : "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd",
-          "slug" : "in0",
-          "isStreaming" : false
+          "slug" : "in0"
         } ],
         "outputs" : [ {
           "id" : "4YUuEWSFiq7aOk3XAnH5z$$Wt6dlaE7lvYTupAxlKkXU",
@@ -1102,10 +918,10 @@
         "isCustomOutputSchema" : true
       },
       "properties" : {
-        "columnsSelector" : [ "dgpH_uiodBVzGYyazndkL$$KQVjLIpm30L9ATmZkzcrd##C_MKTSEGMENT" ],
+        "columnsSelector" : [ ],
         "condition" : {
           "format" : "sql",
-          "expression" : "C_MKTSEGMENT = '$segment'\n\nand expr('$my_expression')\n\n\n"
+          "expression" : "C_MKTSEGMENT = 'AUTOMOBILE'\n\n\n"
         }
       }
     },
@@ -1115,8 +931,8 @@
       "metadata" : {
         "label" : "Orders",
         "slug" : "Orders",
-        "x" : 300,
-        "y" : 200,
+        "x" : -180,
+        "y" : 2220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1142,8 +958,8 @@
       "metadata" : {
         "label" : "Cleanup",
         "slug" : "Cleanup",
-        "x" : 760,
-        "y" : -20,
+        "x" : 340,
+        "y" : 520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1169,55 +985,55 @@
           "target" : "QUANTITY",
           "expression" : {
             "format" : "sql",
-            "expression" : "L_QUANTITY"
+            "expression" : "QUANTITY"
           },
           "description" : ""
         }, {
           "target" : "EXTENDEDPRICE",
           "expression" : {
             "format" : "sql",
-            "expression" : "L_EXTENDEDPRICE"
+            "expression" : "EXTENDEDPRICE"
           },
           "description" : ""
         }, {
           "target" : "DISCOUNT",
           "expression" : {
             "format" : "sql",
-            "expression" : "L_DISCOUNT"
+            "expression" : "DISCOUNT"
           },
           "description" : ""
         }, {
           "target" : "TAX",
           "expression" : {
             "format" : "sql",
-            "expression" : "cast(if(L_TAX == 0, 0.02, L_TAX) as decimal(12,2))"
+            "expression" : "expr('$tax_logic')"
           },
           "description" : ""
         }, {
           "target" : "RETURNFLAG",
           "expression" : {
             "format" : "sql",
-            "expression" : "L_RETURNFLAG"
+            "expression" : "RETURNFLAG"
           },
           "description" : ""
         }, {
           "target" : "DELIVERYSTATUS",
           "expression" : {
             "format" : "sql",
-            "expression" : "L_DELIVERYSTATUS"
+            "expression" : "DELIVERYSTATUS"
           },
           "description" : ""
         }, {
           "target" : "CLEARANCE",
           "expression" : {
             "format" : "sql",
-            "expression" : "case when (\n    L_DISCOUNT > 0.06\n)\nor (\n    L_RETURNFLAG is true\n) then 'true' else 'false' end"
+            "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
           },
           "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_DELIVERYSTATUS", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_TAX", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##L_DISCOUNT" ]
+        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DISCOUNT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DELIVERYSTATUS" ]
       }
     },
     "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD" : {
@@ -1226,8 +1042,8 @@
       "metadata" : {
         "label" : "Shipments",
         "slug" : "Shipments",
-        "x" : 340,
-        "y" : -20,
+        "x" : 120,
+        "y" : 520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1253,5 +1069,214 @@
     "outputs" : [ ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.jdR7nZu03GWqYbx_vy_P2$$d4PL_FcSI-CivJW1pco-E",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "pyspark.sql.utils.AnalysisException: Column 'in2.C_CUSTKEY' does not exist. Did you mean one of the following? [in2.O_CUSTKEY, in1.O_CUSTKEY, in2.O_CLERK, in2.O_ORDERKEY, in1.O_CLERK, in2.O_COMMENT, in1.O_ORDERKEY, in1.O_COMMENT, in2.O_ORDERDATE, in2.O_ORDERSTATUS, in1.O_ORDERDATE, in1.O_ORDERSTATUS, in2.O_TOTALPRICE, in1.O_TOTALPRICE, in2.O_SHIP-PRIORITY, in2.O_ORDER-PRIORITY, in1.O_SHIP-PRIORITY, in1.O_ORDER-PRIORITY];",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.xNvnnzZNyrf2lyyX2GHS-$$E_7JrTUyeaUVOeC-lrljg",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.CJehEwqpSCa9hDMifU-Tg$$fUkFf9ZAl-RETCYxQDOv_",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes._AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes._AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb.properties.orders[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column REVENUE",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes._AtaeVOFVJfSYlXOvF7Gl$$LUhHzE2kSBsAzg15pRInb.properties.orders[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column O_ORDERDATE",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc.properties.expressions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column C_MKTSEGMENT",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc.properties.expressions[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column L_ORDERKEY",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc.properties.expressions[2].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column O_ORDERDATE",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column `O_SHIP-PRIORITY`",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.gRwJYH16yDiYS27SH93Qp$$TjGYEHDzfE7lxEKUS73zc.properties.expressions[4].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column REVENUE",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.ZF0oOTXAlC-JlY--do14-$$iAwAYJz71Zpv_zHN-s-x4",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }
