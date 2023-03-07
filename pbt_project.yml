@@ -12,7 +12,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-07 20:34:46'
+    modifiedAt: '2023-03-07 20:58:03'
     datasets:
       inputs:
       - datasets/Shipments
@@ -40,7 +40,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:12:16'
-    modifiedAt: '2023-03-07 20:34:46'
+    modifiedAt: '2023-03-07 20:55:36'
     mode: batch
     physicalDatasets:
       dev:
@@ -150,57 +150,7 @@ jobs:
       clusterId: null
     enabled: false
     createdAt: '2022-12-08 21:21:01'
-    modifiedAt: '2022-12-08 21:21:01'
-    author: sparklearner123@gmail.com
-  jobs/UnshippedReports2:
-    name: UnshippedReports2
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2023-03-03 16:49:18'
-    modifiedAt: '2023-03-03 16:50:02'
-    author: sparklearner123@gmail.com
-  jobs/UnshippedItems:
-    name: UnshippedItems
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2023-03-03 22:33:13'
-    modifiedAt: '2023-03-03 22:33:47'
+    modifiedAt: '2023-03-07 20:36:04'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
