@@ -9,6 +9,6 @@ def ReportPrices(spark: SparkSession, in0: DataFrame):
     in0.write\
         .format("delta")\
         .option("overwriteSchema", True)\
-        .option("path", f"dbfs:/Filestore/delta/{Config.env}/report")\
+        .option("path", "dbfs:/Filestore/delta/report")\
         .mode("overwrite")\
         .saveAsTable(f"test_delta.report")
