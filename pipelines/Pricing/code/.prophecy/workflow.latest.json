@@ -16,14 +16,7 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ {
-          "name" : "env",
-          "kind" : {
-            "type" : "string",
-            "value" : "dev"
-          },
-          "optional" : false
-        } ]
+        "fields" : [ ]
       },
       "oldCommon" : {
         "type" : "record",
