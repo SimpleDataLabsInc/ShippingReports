@@ -10,4 +10,4 @@ def ReportPrices(spark: SparkSession, in0: DataFrame):
         .format("delta")\
         .option("overwriteSchema", True)\
         .mode("overwrite")\
-        .saveAsTable(f"test_delta.report_shipment_prices")
+        .saveAsTable(f"test_delta.{f"{Config.env}_report"}")

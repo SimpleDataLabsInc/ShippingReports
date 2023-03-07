@@ -1,5 +1,6 @@
 version: 1
 configurations:
-- Set1
 - default
+- Dev
+- Staging
 dependencies: []
