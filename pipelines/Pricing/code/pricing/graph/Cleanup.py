@@ -10,7 +10,7 @@ def Cleanup(spark: SparkSession, in0: DataFrame) -> DataFrame:
         col("QUANTITY"), 
         col("EXTENDEDPRICE"), 
         col("DISCOUNT"), 
-        expr(Config.tax_logic).alias("TAX"), 
+        expr("if((TAX = 0), 0.02D, TAX)").cast(DecimalType(12, 2)).alias("TAX"), 
         col("RETURNFLAG"), 
         col("DELIVERYSTATUS"), 
         when(((col("DISCOUNT") > lit(0.06)) | col("RETURNFLAG").eqNullSafe(lit(True))), lit("true"))\

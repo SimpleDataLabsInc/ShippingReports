@@ -12,14 +12,11 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-06 21:17:13'
+    modifiedAt: '2023-03-07 15:43:39'
     datasets:
       inputs:
-      - datasets/Customer_TPCH
-      - datasets/Orders_TPCH
       - datasets/Shipments
       outputs:
-      - datasets/Unshipped
       - datasets/report_shipment_prices
     dependencies: {}
 datasets:
