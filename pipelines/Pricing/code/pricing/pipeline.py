@@ -11,7 +11,7 @@ def pipeline(spark: SparkSession) -> None:
     df_Cleanup = Cleanup(spark, df_Shipments)
     df_SumAmounts = SumAmounts(spark, df_Cleanup)
     df_ByStatus = ByStatus(spark, df_SumAmounts)
-    ReportPrices(spark, df_ByStatus)
+    PricingReport(spark, df_ByStatus)
 
 def main():
     spark = SparkSession.builder\

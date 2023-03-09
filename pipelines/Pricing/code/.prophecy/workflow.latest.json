@@ -39,7 +39,7 @@
     "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
       "enabled" : true,
-      "value" : 100
+      "value" : 10
     },
     "topLevelPackage" : "pricing"
   },
@@ -56,46 +56,19 @@
     "target" : "eMKsxsutBgJHSGSDjGAZY$$zGdMXBaPj9GzwoOCIyVEl",
     "targetPort" : "ht_vXEjAqlUQHgUXX2L-n$$0Yt5scQLZkPrbtt-_H6W2"
   }, {
-    "id" : "I4ESHqLenM8aCzk0WAN_o",
-    "source" : "eMKsxsutBgJHSGSDjGAZY$$zGdMXBaPj9GzwoOCIyVEl",
-    "sourcePort" : "zca9-6n3uRVTvW17BxzpW$$4SpoqnUHTkGn405oFIYo-",
-    "target" : "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui",
-    "targetPort" : "i4Lzlxqq47UhSnLrbcunn$$6X1vKo37fktqYdz9ix0ld"
-  }, {
     "id" : "TaBambO9lWkGDRo0d-QiR",
     "source" : "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD",
     "sourcePort" : "rx5Yf38R-Lq0XRrh1SuUR$$toPX_eZo2xWOmO45w84If",
     "target" : "kCZLzEmPWiSwwbhB_mKzs$$GJMGB6OmO4z_1zwJb8hCa",
     "targetPort" : "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT"
+  }, {
+    "id" : "IU8yqRKoEs5Opp8-gcIQ7",
+    "source" : "eMKsxsutBgJHSGSDjGAZY$$zGdMXBaPj9GzwoOCIyVEl",
+    "sourcePort" : "zca9-6n3uRVTvW17BxzpW$$4SpoqnUHTkGn405oFIYo-",
+    "target" : "WAoz4NJm2-NgccSnqTnKs$$P6HXdGsOJIwnSRB93A1kV",
+    "targetPort" : "LIQW4Kx4HY4bJZEc4_IpT$$FPJQCUQ9QDRMQbao9TYH3"
   } ],
   "processes" : {
-    "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui" : {
-      "id" : "pKdW1FxuSw9NwgWTtGMBb$$i5tm9LJHXESbkc_sBx4Ui",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "ReportPrices",
-        "slug" : "ReportPrices",
-        "x" : 920,
-        "y" : 120,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "i4Lzlxqq47UhSnLrbcunn$$6X1vKo37fktqYdz9ix0ld",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/report_shipment_prices"
-      }
-    },
     "G7NuYuX3V0HYK57mlgLQG$$ontJz5_GyRVgsz4CUyFtl" : {
       "id" : "G7NuYuX3V0HYK57mlgLQG$$ontJz5_GyRVgsz4CUyFtl",
       "component" : "Aggregate",
@@ -257,10 +230,86 @@
         "outputs" : [ {
           "id" : "KV24DPOw7wk1IriVmzSoT$$PIBGMnRpgqj8di8pqDf-n",
           "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CLEARANCE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "COMMENT",
+              "type" : "binary",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : true
       },
       "properties" : {
         "importLanguage" : "python",
@@ -313,6 +362,13 @@
             "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
           },
           "description" : ""
+        }, {
+          "target" : "COMMENT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "expr('$encrypt_logic')"
+          },
+          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
@@ -344,6 +400,33 @@
       },
       "properties" : {
         "datasetId" : "datasets/Shipments"
+      }
+    },
+    "WAoz4NJm2-NgccSnqTnKs$$P6HXdGsOJIwnSRB93A1kV" : {
+      "id" : "WAoz4NJm2-NgccSnqTnKs$$P6HXdGsOJIwnSRB93A1kV",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "PricingReport",
+        "slug" : "PricingReport",
+        "x" : 920,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "LIQW4Kx4HY4bJZEc4_IpT$$FPJQCUQ9QDRMQbao9TYH3",
+          "slug" : "in0",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/PricingReport"
       }
     }
   },
