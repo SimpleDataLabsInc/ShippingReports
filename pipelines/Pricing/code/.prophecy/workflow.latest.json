@@ -39,7 +39,7 @@
     "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
       "enabled" : true,
-      "value" : 10
+      "value" : 10000
     },
     "topLevelPackage" : "pricing"
   },
@@ -362,17 +362,10 @@
             "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
           },
           "description" : ""
-        }, {
-          "target" : "COMMENT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "expr('$encrypt_logic')"
-          },
-          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##TAX", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DISCOUNT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DELIVERYSTATUS" ]
+        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DELIVERYSTATUS", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DISCOUNT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##TAX" ]
       }
     },
     "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD" : {
