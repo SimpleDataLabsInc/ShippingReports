@@ -43,7 +43,7 @@
       "python_wheel_task" : {
         "package_name" : "Pricing",
         "entry_point" : "main",
-        "parameters" : [ "-i", "default" ]
+        "parameters" : [ "-i", "default", "-O", "{\"env\":\"dev\"}" ]
       },
       "libraries" : [ {
         "maven" : {

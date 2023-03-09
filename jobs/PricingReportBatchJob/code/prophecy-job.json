@@ -98,11 +98,27 @@
       "properties" : {
         "pipelineId" : "pipelines/Pricing",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "env",
+            "kind" : {
+              "type" : "string",
+              "value" : "dev"
+            },
+            "optional" : false
+          }, {
+            "name" : "encrypt_logic",
+            "kind" : {
+              "type" : "spark_expression",
+              "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
+            },
+            "optional" : false
+          } ],
           "instances" : {
-            "ShippingReports" : [ "default" ]
+            "ShippingReports" : [ "Development", "default", "Staging" ]
           },
-          "overrides" : { },
+          "overrides" : {
+            "env" : "dev"
+          },
           "selectedInstance" : "default"
         }
       }
