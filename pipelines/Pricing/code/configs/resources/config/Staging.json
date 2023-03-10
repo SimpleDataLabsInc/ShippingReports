@@ -1,4 +1,0 @@
-{
-  "env" : "stg",
-  "encryption_logic" : "aes_encrypt(COMMENT, secret('stg-scope', 'AESkey'))"
-}

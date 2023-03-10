@@ -15,7 +15,7 @@ def Shipments(spark: SparkSession) -> DataFrame:
             "sfUrl": "https://lzcxmtj-mn69040.snowflakecomputing.com",
             "sfUser": DBUtils(spark).secrets.get(scope = "anyademos", key = "username"),
             "sfPassword": DBUtils(spark).secrets.get(scope = "anyademos", key = "password"),
-            "sfDatabase": f"{Config.env}_retail",
+            "sfDatabase": "retail",
             "sfSchema": "PRICING",
             "sfWarehouse": "TPC"
           }
