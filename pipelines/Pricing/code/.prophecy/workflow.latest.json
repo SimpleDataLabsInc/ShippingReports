@@ -16,21 +16,7 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ {
-          "name" : "env",
-          "kind" : {
-            "type" : "string",
-            "value" : "dev"
-          },
-          "optional" : false
-        }, {
-          "name" : "encrypt_logic",
-          "kind" : {
-            "type" : "spark_expression",
-            "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
-          },
-          "optional" : false
-        } ]
+        "fields" : [ ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -38,7 +24,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "Staging",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -374,13 +360,6 @@
           "expression" : {
             "format" : "sql",
             "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
-          },
-          "description" : ""
-        }, {
-          "target" : "COMMENT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "expr('$encrypt_logic')"
           },
           "description" : ""
         } ],
