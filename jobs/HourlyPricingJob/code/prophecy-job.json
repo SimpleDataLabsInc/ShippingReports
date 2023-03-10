@@ -2,9 +2,9 @@
   "metainfo" : {
     "type" : "Databricks",
     "fabricId" : "990",
-    "jobId" : "jobs/stgJob",
-    "name" : "stgJob",
-    "schedule" : "0 0 0 1/1 * ? *",
+    "jobId" : "jobs/HourlyPricingJob",
+    "name" : "HourlyPricingJob",
+    "schedule" : "0 0 0/1 * * ? *",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
@@ -69,8 +69,8 @@
     } ]
   },
   "processes" : {
-    "31ZtimiuUZp_i3r7qYDBH$$ohH_NbPG8OcKa-YviHUdn" : {
-      "id" : "31ZtimiuUZp_i3r7qYDBH$$ohH_NbPG8OcKa-YviHUdn",
+    "aOBNiGjJdVJ5NDxJr3sA6$$Z8N0-gKEfU80fQJJGPf8y" : {
+      "id" : "aOBNiGjJdVJ5NDxJr3sA6$$Z8N0-gKEfU80fQJJGPf8y",
       "component" : "Pipeline",
       "metadata" : {
         "label" : "Pipeline_0",
@@ -80,10 +80,10 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "_1FEOTB2y4F8BLM3E_CqR$$La6EwTcV5oxEdSqm40A2c"
+          "id" : "sRBy6zoi_eJoJQaITSNH4$$3_-eWcD9NsJD-B3Ip2o5p"
         } ],
         "outputs" : [ {
-          "id" : "cfXLLJs-cdsLkQY--LGft$$CY0D9sfGgYYi3qGWA-Tvw"
+          "id" : "Sx2fexRjsMVgm_t_e0YdI$$v_V9tSlUOwZSyCFxAuQUh"
         } ]
       },
       "settings" : {
@@ -102,14 +102,14 @@
             "name" : "env",
             "kind" : {
               "type" : "string",
-              "value" : "stg"
+              "value" : "dev"
             },
             "optional" : false
           }, {
             "name" : "encryption_logic",
             "kind" : {
               "type" : "spark_expression",
-              "value" : "aes_encrypt(COMMENT, secret('stg-scope', 'AESkey'))"
+              "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
             },
             "optional" : false
           } ],
@@ -117,7 +117,7 @@
             "ShippingReports" : [ "Production", "Development", "default", "Staging" ]
           },
           "overrides" : { },
-          "selectedInstance" : "Staging"
+          "selectedInstance" : "Development"
         }
       }
     }

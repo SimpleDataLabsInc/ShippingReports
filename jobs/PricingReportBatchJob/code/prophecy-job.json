@@ -106,7 +106,7 @@
             },
             "optional" : false
           }, {
-            "name" : "encrypt_logic",
+            "name" : "encryption_logic",
             "kind" : {
               "type" : "spark_expression",
               "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
@@ -114,7 +114,7 @@
             "optional" : false
           } ],
           "instances" : {
-            "ShippingReports" : [ "Development", "default", "Staging" ]
+            "ShippingReports" : [ "Production", "Development", "default", "Staging" ]
           },
           "overrides" : {
             "env" : "dev"

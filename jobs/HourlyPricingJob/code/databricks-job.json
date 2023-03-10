@@ -10,15 +10,15 @@
   } ],
   "request" : {
     "format" : "MULTI_TASK",
-    "name" : "stgJob",
+    "name" : "HourlyPricingJob",
     "job_clusters" : [ {
-      "job_cluster_key" : "stgJob_default_small",
+      "job_cluster_key" : "HourlyPricingJob_default_small",
       "new_cluster" : {
         "spark_version" : "11.3.x-scala2.12",
         "node_type_id" : "i3.xlarge",
         "spark_conf" : {
           "prophecy.metadata.fabric.id" : "990",
-          "prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/stgJob",
+          "prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/HourlyPricingJob",
           "prophecy.metadata.is.interactive.run" : "false",
           "prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
           "prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
@@ -37,11 +37,11 @@
     "email_notifications" : { },
     "tasks" : [ {
       "task_key" : "Pipeline_0",
-      "job_cluster_key" : "stgJob_default_small",
+      "job_cluster_key" : "HourlyPricingJob_default_small",
       "python_wheel_task" : {
         "package_name" : "Pricing",
         "entry_point" : "main",
-        "parameters" : [ "-i", "Staging" ]
+        "parameters" : [ "-i", "Development" ]
       },
       "libraries" : [ {
         "maven" : {
@@ -59,7 +59,7 @@
     } ],
     "max_concurrent_runs" : 1,
     "schedule" : {
-      "quartz_cron_expression" : "0 0 0 1/1 * ? *",
+      "quartz_cron_expression" : "0 0 0/1 * * ? *",
       "timezone_id" : "GMT",
       "pause_status" : "UNPAUSED"
     }

@@ -180,17 +180,17 @@ jobs:
       clusterId: null
     enabled: false
     createdAt: '2022-12-08 21:21:01'
-    modifiedAt: '2023-03-09 22:35:31'
+    modifiedAt: '2023-03-10 18:34:34'
     author: sparklearner123@gmail.com
-  jobs/devJob:
-    name: devJob
+  jobs/HourlyPricingJob:
+    name: HourlyPricingJob
     description: ''
     fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
     jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
+    scheduleCron: 0 0 0/1 * * ? *
     timeout: null
     alerting:
       emails: ''
@@ -204,58 +204,8 @@ jobs:
         Single: {}
       clusterId: null
     enabled: true
-    createdAt: '2023-03-10 04:54:22'
-    modifiedAt: '2023-03-10 16:57:16'
-    author: sparklearner123@gmail.com
-  jobs/stgJob:
-    name: stgJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2023-03-10 04:55:04'
-    modifiedAt: '2023-03-10 16:56:47'
-    author: sparklearner123@gmail.com
-  jobs/prodJob:
-    name: prodJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2023-03-10 04:55:24'
-    modifiedAt: '2023-03-10 16:56:02'
+    createdAt: '2023-03-10 19:12:24'
+    modifiedAt: '2023-03-10 19:12:58'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
