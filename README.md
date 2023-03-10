@@ -55,3 +55,7 @@ adds hourly job
 *** Release notes for version: 1.1.3 ***
 
 releasing a job that can be configured for Development, Staging, or Production environments
+
+*** Release notes for version: 1.1.6 ***
+
+Configured pricing pipeline to run with a scheduled job in Production
