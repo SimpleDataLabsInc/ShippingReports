@@ -38,7 +38,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "Development",
+      "selected" : "Staging",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
