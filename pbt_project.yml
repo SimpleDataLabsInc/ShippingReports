@@ -12,7 +12,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-10 21:57:58'
+    modifiedAt: '2023-03-10 22:07:57'
     datasets:
       inputs:
       - datasets/Shipments
@@ -25,7 +25,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:05:07'
-    modifiedAt: '2023-03-10 21:57:26'
+    modifiedAt: '2023-03-10 22:05:04'
     mode: batch
     physicalDatasets:
       dev:
@@ -145,7 +145,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-08 15:15:42'
-    modifiedAt: '2023-03-10 21:33:47'
+    modifiedAt: '2023-03-10 22:05:17'
     mode: batch
     physicalDatasets:
       dev:
@@ -206,6 +206,31 @@ jobs:
     enabled: true
     createdAt: '2023-03-10 19:27:33'
     modifiedAt: '2023-03-10 19:27:54'
+    author: sparklearner123@gmail.com
+  jobs/ConfiguredPricingJob:
+    name: ConfiguredPricingJob
+    description: ''
+    fabricUID: 990
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 1/1 * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/Pricing
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: true
+    createdAt: '2023-03-10 22:08:15'
+    modifiedAt: '2023-03-10 22:08:43'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
