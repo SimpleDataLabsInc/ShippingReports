@@ -47,3 +47,7 @@ this release includes the jobs which run the pricing pipeline
 *** Release notes for version: 1.1.1 ***
 
 update fabric
+
+*** Release notes for version: 1.1.2 ***
+
+adds hourly job
