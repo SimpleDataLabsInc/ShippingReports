@@ -51,3 +51,7 @@ update fabric
 *** Release notes for version: 1.1.2 ***
 
 adds hourly job
+
+*** Release notes for version: 1.1.3 ***
+
+releasing a job that can be configured for Development, Staging, or Production environments
