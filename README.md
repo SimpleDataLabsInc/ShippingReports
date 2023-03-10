@@ -31,3 +31,7 @@ adds a path to target gems
 *** Release notes for version: 1.0.6 ***
 
 adds segment and path_helper configurable variables
+
+*** Release notes for version: 1.0.7 ***
+
+adds configurable variables
