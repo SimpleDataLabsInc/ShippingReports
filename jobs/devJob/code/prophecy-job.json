@@ -1,0 +1,126 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "1609",
+    "jobId" : "jobs/devJob",
+    "name" : "devJob",
+    "schedule" : "0 0 0 1/1 * ? *",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "1609",
+      "name" : "UnityCatalogClusters",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "990",
+      "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "1045",
+      "name" : "Photon",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "2miMoJE-E2tN-sfS4EJxt$$m8jrFd9bfPSEWXB_Q2rz9" : {
+      "id" : "2miMoJE-E2tN-sfS4EJxt$$m8jrFd9bfPSEWXB_Q2rz9",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "HourlyJobDev",
+        "slug" : "HourlyJobDev",
+        "x" : 140,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fp046haOdkt4eVQV2lt-6$$1bEEKaJlnilnvkpNwIfKo"
+        } ],
+        "outputs" : [ {
+          "id" : "8SYvE2qOynY9KbttSCaHP$$Glqmkhb_v-LoXyXalPwQ7"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/Pricing",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "env",
+            "kind" : {
+              "type" : "string",
+              "value" : "dev"
+            },
+            "optional" : false
+          }, {
+            "name" : "encryption_logic",
+            "kind" : {
+              "type" : "spark_expression",
+              "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
+            },
+            "optional" : false
+          } ],
+          "instances" : {
+            "ShippingReports" : [ "Production", "Development", "default", "Staging" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "Development"
+        }
+      }
+    }
+  },
+  "connections" : [ ]
+}

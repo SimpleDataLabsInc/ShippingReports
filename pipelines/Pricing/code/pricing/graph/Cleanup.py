@@ -15,5 +15,6 @@ def Cleanup(spark: SparkSession, in0: DataFrame) -> DataFrame:
         col("DELIVERYSTATUS"), 
         when(((col("DISCOUNT") > lit(0.06)) | col("RETURNFLAG").eqNullSafe(lit(True))), lit("true"))\
           .otherwise(lit("false"))\
-          .alias("CLEARANCE")
+          .alias("CLEARANCE"), 
+        expr(Config.encryption_logic).alias("COMMENT")
     )

@@ -1,4 +1,7 @@
 version: 1
 configurations:
 - default
+- Development
+- Staging
+- Production
 dependencies: []
