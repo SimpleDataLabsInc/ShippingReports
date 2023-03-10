@@ -16,6 +16,13 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: COMMENT
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
   - name: SUPPKEY
     type: decimal(38,0)
     nullable: true
@@ -101,13 +108,6 @@ schema:
       mappings: []
       tags: []
   - name: SHIPMODE
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: COMMENT
     type: string
     nullable: true
     metadata:

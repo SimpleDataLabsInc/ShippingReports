@@ -9,6 +9,7 @@ def Cleanup(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
         col("QUANTITY"), 
         col("EXTENDEDPRICE"), 
+        col("COMMENT"), 
         col("DISCOUNT"), 
         expr("if((TAX = 0), 0.02D, TAX)").cast(DecimalType(12, 2)).alias("TAX"), 
         col("RETURNFLAG"), 
