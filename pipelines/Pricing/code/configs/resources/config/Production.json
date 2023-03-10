@@ -1,6 +1,0 @@
-{
-  "env" : "prd",
-  "another_variable" : false,
-  "yet_another_variable" : 4,
-  "encrypt_logic" : "aes_encrypt(COMMENT, secret('prd-scope', 'AESkey'))"
-}
