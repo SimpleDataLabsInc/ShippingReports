@@ -185,7 +185,7 @@ jobs:
   jobs/devJob:
     name: devJob
     description: ''
-    fabricUID: 1609
+    fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
@@ -203,14 +203,14 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-03-10 04:54:22'
-    modifiedAt: '2023-03-10 04:54:51'
+    modifiedAt: '2023-03-10 16:57:16'
     author: sparklearner123@gmail.com
   jobs/stgJob:
     name: stgJob
     description: ''
-    fabricUID: 1609
+    fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
@@ -228,14 +228,14 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-03-10 04:55:04'
-    modifiedAt: '2023-03-10 04:55:13'
+    modifiedAt: '2023-03-10 16:56:47'
     author: sparklearner123@gmail.com
   jobs/prodJob:
     name: prodJob
     description: ''
-    fabricUID: 1609
+    fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
@@ -253,9 +253,9 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-03-10 04:55:24'
-    modifiedAt: '2023-03-10 04:55:33'
+    modifiedAt: '2023-03-10 16:56:02'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}

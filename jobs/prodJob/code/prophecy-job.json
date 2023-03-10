@@ -1,14 +1,14 @@
 {
   "metainfo" : {
     "type" : "Databricks",
-    "fabricId" : "1609",
+    "fabricId" : "990",
     "jobId" : "jobs/prodJob",
     "name" : "prodJob",
     "schedule" : "0 0 0 1/1 * ? *",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
-    "enabled" : false,
+    "enabled" : true,
     "defaultClusterSize" : "small",
     "alerting" : {
       "emails" : "",
