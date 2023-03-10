@@ -35,3 +35,7 @@ adds segment and path_helper configurable variables
 *** Release notes for version: 1.0.7 ***
 
 adds configurable variables
+
+*** Release notes for version: 1.0.9 ***
+
+added configurable variables for dataset and cleanup gems
