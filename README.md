@@ -39,3 +39,7 @@ adds configurable variables
 *** Release notes for version: 1.0.9 ***
 
 added configurable variables for dataset and cleanup gems
+
+*** Release notes for version: 1.1.0 ***
+
+this release includes the jobs which run the pricing pipeline
