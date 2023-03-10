@@ -16,7 +16,28 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "env",
+          "kind" : {
+            "type" : "string",
+            "value" : "dev"
+          },
+          "optional" : false
+        }, {
+          "name" : "another_var",
+          "kind" : {
+            "type" : "boolean",
+            "value" : false
+          },
+          "optional" : false
+        }, {
+          "name" : "encrypt_logic",
+          "kind" : {
+            "type" : "spark_expression",
+            "value" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
+          },
+          "optional" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -24,7 +45,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "default",
+      "selected" : "Production",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -331,7 +352,7 @@
           "target" : "COMMENT",
           "expression" : {
             "format" : "sql",
-            "expression" : "COMMENT"
+            "expression" : "expr('$encrypt_logic')"
           },
           "description" : ""
         }, {
@@ -372,7 +393,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DELIVERYSTATUS", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##COMMENT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DISCOUNT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##TAX" ]
+        "columnsSelector" : [ "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##RETURNFLAG", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DELIVERYSTATUS", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##QUANTITY", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##EXTENDEDPRICE", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##DISCOUNT", "qIymrh6Hd-vpJ1__FXf27$$x8cCnX7k7TPWELQMl42zT##TAX" ]
       }
     },
     "GxBesIASLHOBbqdEqxjsc$$GBqLMRQPrIQGNvLH4NnjD" : {

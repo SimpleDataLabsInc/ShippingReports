@@ -1,0 +1,5 @@
+{
+  "env" : "dev",
+  "another_var" : false,
+  "encrypt_logic" : "aes_encrypt(COMMENT, secret('dev-scope', 'AESkey'))"
+}
