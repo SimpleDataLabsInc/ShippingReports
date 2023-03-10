@@ -2,9 +2,9 @@
   "metainfo" : {
     "type" : "Databricks",
     "fabricId" : "990",
-    "jobId" : "jobs/HourlyPricingJob",
-    "name" : "HourlyPricingJob",
-    "schedule" : "0 0 0/1 * * ? *",
+    "jobId" : "jobs/PipelineConfiguredJob",
+    "name" : "PipelineConfiguredJob",
+    "schedule" : "0 0 0 1/1 * ? *",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
@@ -69,8 +69,8 @@
     } ]
   },
   "processes" : {
-    "aOBNiGjJdVJ5NDxJr3sA6$$Z8N0-gKEfU80fQJJGPf8y" : {
-      "id" : "aOBNiGjJdVJ5NDxJr3sA6$$Z8N0-gKEfU80fQJJGPf8y",
+    "xVykSBiiyf79SlzsaL5Mn$$2oL9gF1L9ADrnYDO-cMQF" : {
+      "id" : "xVykSBiiyf79SlzsaL5Mn$$2oL9gF1L9ADrnYDO-cMQF",
       "component" : "Pipeline",
       "metadata" : {
         "label" : "Pipeline_0",
@@ -80,10 +80,10 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "sRBy6zoi_eJoJQaITSNH4$$3_-eWcD9NsJD-B3Ip2o5p"
+          "id" : "0gnS1ypkv6BG4Bdp3kFr_$$mp8DmctoVd7uG4SYQVbm_"
         } ],
         "outputs" : [ {
-          "id" : "Sx2fexRjsMVgm_t_e0YdI$$v_V9tSlUOwZSyCFxAuQUh"
+          "id" : "67PRaZTQ1VA1hWh09F12y$$TRjFkXijbfpMZnhRE5OfO"
         } ]
       },
       "settings" : {

@@ -182,15 +182,15 @@ jobs:
     createdAt: '2022-12-08 21:21:01'
     modifiedAt: '2023-03-10 18:34:34'
     author: sparklearner123@gmail.com
-  jobs/HourlyPricingJob:
-    name: HourlyPricingJob
+  jobs/PipelineConfiguredJob:
+    name: PipelineConfiguredJob
     description: ''
     fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
     jobSize: small
-    scheduleCron: 0 0 0/1 * * ? *
+    scheduleCron: 0 0 0 1/1 * ? *
     timeout: null
     alerting:
       emails: ''
@@ -204,8 +204,8 @@ jobs:
         Single: {}
       clusterId: null
     enabled: true
-    createdAt: '2023-03-10 19:12:24'
-    modifiedAt: '2023-03-10 19:12:58'
+    createdAt: '2023-03-10 19:27:33'
+    modifiedAt: '2023-03-10 19:27:54'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
