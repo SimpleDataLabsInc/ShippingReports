@@ -1,0 +1,4 @@
+{
+  "market_segment" : "HOUSEHOLD",
+  "follow_up_logic" : "if(RETURNFLAG == 'true', true, false)"
+}

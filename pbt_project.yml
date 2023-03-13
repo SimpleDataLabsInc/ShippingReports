@@ -12,7 +12,21 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-10 22:22:29'
+    modifiedAt: '2023-03-13 16:16:34'
+    datasets:
+      inputs:
+      - datasets/Shipments
+      outputs:
+      - datasets/PricingReport
+    dependencies: {}
+  pipelines/PricingBySegment:
+    name: PricingBySegment
+    description: Pricing for shipments configured per shipping segment
+    author: sparklearner123@gmail.com
+    mode: batch
+    language: python
+    createdAt: '2023-03-13 21:42:50'
+    modifiedAt: '2023-03-13 23:02:40'
     datasets:
       inputs:
       - datasets/Shipments
@@ -25,7 +39,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:05:07'
-    modifiedAt: '2023-03-10 22:20:17'
+    modifiedAt: '2023-03-13 21:45:29'
     mode: batch
     physicalDatasets:
       dev:
@@ -145,7 +159,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-08 15:15:42'
-    modifiedAt: '2023-03-10 22:20:35'
+    modifiedAt: '2023-03-13 21:45:35'
     mode: batch
     physicalDatasets:
       dev:
@@ -181,81 +195,6 @@ jobs:
     enabled: false
     createdAt: '2022-12-08 21:21:01'
     modifiedAt: '2023-03-10 18:34:34'
-    author: sparklearner123@gmail.com
-  jobs/PipelineConfiguredJob:
-    name: PipelineConfiguredJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2023-03-10 19:27:33'
-    modifiedAt: '2023-03-10 19:27:54'
-    author: sparklearner123@gmail.com
-  jobs/ConfiguredPricingJob:
-    name: ConfiguredPricingJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2023-03-10 22:08:15'
-    modifiedAt: '2023-03-10 22:08:43'
-    author: sparklearner123@gmail.com
-  jobs/ConfiguredJob:
-    name: ConfiguredJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: true
-    createdAt: '2023-03-10 22:23:03'
-    modifiedAt: '2023-03-10 22:23:29'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}

@@ -1,0 +1,4 @@
+{
+  "follow_up_logic" : "if(TAX == 0, true, false) ",
+  "market_segment" : "AUTOMOBILE"
+}

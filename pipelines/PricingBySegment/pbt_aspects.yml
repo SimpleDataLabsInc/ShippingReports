@@ -1,6 +1,6 @@
 version: 1
 configurations:
-- Production
-- Development
+- Household
 - default
+- Automobile
 dependencies: []
