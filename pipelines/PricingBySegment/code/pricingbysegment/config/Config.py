@@ -8,7 +8,12 @@ class Config(ConfigBase):
         self.spark = None
         self.update(market_segment, shipdate_interval, follow_up_logic)
 
-    def update(self, market_segment: str="*", shipdate_interval: int=90, follow_up_logic: str="false "):
+    def update(
+            self,
+            market_segment: str="'FURNITURE' AND 'BUILDING' AND 'AUTOMOBILE' AND 'MANUFACTURING'", 
+            shipdate_interval: int=90, 
+            follow_up_logic: str="false"
+    ):
         global prophecy_spark_context
         prophecy_spark_context = self.spark
         self.market_segment = market_segment

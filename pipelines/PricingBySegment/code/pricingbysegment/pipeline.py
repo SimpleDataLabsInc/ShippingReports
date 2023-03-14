@@ -7,12 +7,23 @@ from prophecy.utils import *
 from pricingbysegment.graph import *
 
 def pipeline(spark: SparkSession) -> None:
+    df_OrdersNCustomers_1 = OrdersNCustomers_1(spark)
     df_Shipments = Shipments(spark)
-    df_Cleanup = Cleanup(spark, df_Shipments)
-    df_SumAmounts = SumAmounts(spark, df_Cleanup)
-    df_ByStatus = ByStatus(spark, df_SumAmounts)
-    PricingReport(spark, df_ByStatus)
-    df_Source_1 = Source_1(spark)
+    df_ByOrderkey = ByOrderkey(spark, df_Shipments, df_OrdersNCustomers_1)
+    df_ByOrderkey = df_ByOrderkey.cache()
+    df_AdjustCols = AdjustCols(spark, df_ByOrderkey)
+    df_BySegment = BySegment(spark, df_AdjustCols)
+    df_SumAmounts = SumAmounts(spark, df_BySegment)
+    PricingReport(spark, df_SumAmounts)
+    df_Shipments_old = Shipments_old(spark)
+    df_Customer_TPCH = Customer_TPCH(spark)
+    df_Cleanup = Cleanup(spark, df_Shipments_old)
+    df_SumAmounts_old = SumAmounts_old(spark, df_Cleanup)
+    df_ByStatus = ByStatus(spark, df_SumAmounts_old)
+    PricingReport_old(spark, df_ByStatus)
+    df_Orders_TPCH = Orders_TPCH(spark)
+    df_Join_1 = Join_1(spark, df_Customer_TPCH, df_Orders_TPCH)
+    OrdersNCustomers(spark, df_Join_1)
 
 def main():
     spark = SparkSession.builder\

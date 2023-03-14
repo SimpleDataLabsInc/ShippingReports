@@ -4,14 +4,14 @@ schema:
   fields:
   - name: RETURNFLAG
     type: string
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: DELIVERYSTATUS
     type: string
-    nullable: false
+    nullable: true
     metadata:
       description: ''
       mappings: []
@@ -38,13 +38,6 @@ schema:
       mappings: []
       tags: []
   - name: COUNT_ORDER
-    type: long
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: COUNT_CLEARANCE
     type: long
     nullable: false
     metadata:
