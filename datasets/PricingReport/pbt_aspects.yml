@@ -44,3 +44,10 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: PERCENT_RETURNED
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
