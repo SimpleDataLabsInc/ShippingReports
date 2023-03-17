@@ -68,7 +68,7 @@
     "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
   }, {
-    "id" : "BPiIBXysJ-FYm7b5Y2JLL",
+    "id" : "sOlExtqPi2Qy-6CYSXRd-",
     "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "sourcePort" : "FRZPYqyd9qsHI8EYfpVoz$$2m-s2vKUtFKOPCzPuH4pD",
     "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
@@ -436,7 +436,7 @@
           "target" : "SUM_CHARGE",
           "expression" : {
             "format" : "sql",
-            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) * (1 - '$wholesale_discount') * (1 + TAX)\n  )\n as decimal (18,2))"
+            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) * (1 + TAX)\n  )\n as decimal (18,2))"
           },
           "description" : "",
           "_row_id" : ""
