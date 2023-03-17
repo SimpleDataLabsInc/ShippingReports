@@ -16,21 +16,7 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ {
-          "name" : "market_segment",
-          "kind" : {
-            "type" : "string",
-            "value" : "AUTOMOBILE"
-          },
-          "optional" : false
-        }, {
-          "name" : "wholesale_discount",
-          "kind" : {
-            "type" : "float",
-            "value" : 0.05
-          },
-          "optional" : false
-        } ]
+        "fields" : [ ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -70,18 +56,6 @@
     "target" : "9fSCN0grbscwa97q59qKI$$CpZXGIhBeWCJRAcYEOYn9",
     "targetPort" : "aXbN0dcD-ZxUkNDYa3_I6$$xz4NGyhsEi_iSkd7Bv5ly"
   }, {
-    "id" : "Ts2A3vZFo0A9ELFtq8tZe",
-    "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
-    "sourcePort" : "FRZPYqyd9qsHI8EYfpVoz$$2m-s2vKUtFKOPCzPuH4pD",
-    "target" : "IV_PFOgy3G-K8w3liSPps$$Bjeyr4jGTMVMrVP0IwkaV",
-    "targetPort" : "DuXqTorEHhu6UdBewYAqy$$PnAn2xTyhc7zYXDWJVJzQ"
-  }, {
-    "id" : "sf7M87HCtq0RktlezdyBX",
-    "source" : "IV_PFOgy3G-K8w3liSPps$$Bjeyr4jGTMVMrVP0IwkaV",
-    "sourcePort" : "rpvvsbyueL-i5lTclvAz2$$RC-pKt1J2KvwoJoX4f3T9",
-    "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
-    "targetPort" : "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn"
-  }, {
     "id" : "Argf9uGzBiFoc-8AzVICN",
     "source" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
     "sourcePort" : "804K7Hsv2AhZpXLmz6m2b$$7M7_HKyAaQRpqhUm7V_It",
@@ -93,14 +67,20 @@
     "sourcePort" : "JxRAoGF1_Bycx2nLf_myo$$dlGCSqxxQCmI1sWbqKHQo",
     "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
+  }, {
+    "id" : "BPiIBXysJ-FYm7b5Y2JLL",
+    "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
+    "sourcePort" : "FRZPYqyd9qsHI8EYfpVoz$$2m-s2vKUtFKOPCzPuH4pD",
+    "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
+    "targetPort" : "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn"
   } ],
   "processes" : {
     "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog" : {
       "id" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "Columns",
-        "slug" : "Columns",
+        "label" : "AdjustCols",
+        "slug" : "AdjustCols",
         "x" : 520,
         "y" : 220,
         "phase" : 0,
@@ -352,8 +332,8 @@
       "id" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "Costs",
-        "slug" : "Costs",
+        "label" : "SumAmounts",
+        "slug" : "SumAmounts",
         "x" : 920,
         "y" : 220,
         "phase" : 0,
@@ -456,7 +436,7 @@
           "target" : "SUM_CHARGE",
           "expression" : {
             "format" : "sql",
-            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) * '$wholesale_discount' * (1 + TAX)\n  )\n as decimal (18,2))"
+            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) * (1 - '$wholesale_discount') * (1 + TAX)\n  )\n as decimal (18,2))"
           },
           "description" : "",
           "_row_id" : ""
@@ -650,162 +630,6 @@
       },
       "properties" : {
         "datasetId" : "datasets/Shipments"
-      }
-    },
-    "IV_PFOgy3G-K8w3liSPps$$Bjeyr4jGTMVMrVP0IwkaV" : {
-      "id" : "IV_PFOgy3G-K8w3liSPps$$Bjeyr4jGTMVMrVP0IwkaV",
-      "component" : "Filter",
-      "metadata" : {
-        "label" : "BySegment",
-        "slug" : "BySegment",
-        "x" : 720,
-        "y" : 220,
-        "phase" : 0,
-        "cache" : true,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "DuXqTorEHhu6UdBewYAqy$$PnAn2xTyhc7zYXDWJVJzQ",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "rpvvsbyueL-i5lTclvAz2$$RC-pKt1J2KvwoJoX4f3T9",
-          "slug" : "out",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "MKTSEGMENT",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "FOLLOW_UP",
-              "type" : "boolean",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "QUANTITY",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "EXTENDEDPRICE",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DISCOUNT",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TAX",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "RETURNFLAG",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DELIVERYSTATUS",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "CLEARANCE",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "SHIPDATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ACCTBAL",
-              "type" : "decimal(20,10)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "C_CUSTKEY",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ORDERKEY",
-              "type" : "decimal(38,0)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true
-      },
-      "properties" : {
-        "columnsSelector" : [ "DuXqTorEHhu6UdBewYAqy$$PnAn2xTyhc7zYXDWJVJzQ##MKTSEGMENT" ],
-        "condition" : {
-          "format" : "sql",
-          "expression" : "MKTSEGMENT = '$market_segment'"
-        }
       }
     },
     "QHraJwix6MU4zkcR2JcAh$$1WegjhqC0sBHI7lizd57N" : {

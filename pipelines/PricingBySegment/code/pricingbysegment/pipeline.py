@@ -11,12 +11,10 @@ def pipeline(spark: SparkSession) -> None:
     df_Shipments = Shipments(spark)
     df_ByOrderkey = ByOrderkey(spark, df_Shipments, df_Orders)
     df_ByOrderkey = df_ByOrderkey.cache()
-    df_Columns = Columns(spark, df_ByOrderkey)
-    df_Columns = df_Columns.cache()
-    df_BySegment = BySegment(spark, df_Columns)
-    df_BySegment = df_BySegment.cache()
-    df_Costs = Costs(spark, df_BySegment)
-    Pricing(spark, df_Costs)
+    df_AdjustCols = AdjustCols(spark, df_ByOrderkey)
+    df_AdjustCols = df_AdjustCols.cache()
+    df_SumAmounts = SumAmounts(spark, df_AdjustCols)
+    Pricing(spark, df_SumAmounts)
 
 def main():
     spark = SparkSession.builder\

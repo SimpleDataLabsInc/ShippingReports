@@ -5,7 +5,7 @@ from prophecy.libs import typed_lit
 from pricingbysegment.config.ConfigStore import *
 from pricingbysegment.udfs.UDFs import *
 
-def Costs(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def SumAmounts(spark: SparkSession, in0: DataFrame) -> DataFrame:
     df1 = in0.groupBy(col("RETURNFLAG"), col("DELIVERYSTATUS"))
 
     return df1.agg(
@@ -21,7 +21,10 @@ def Costs(spark: SparkSession, in0: DataFrame) -> DataFrame:
                     - col("DISCOUNT")
                   )
                 )
-                * lit(Config.wholesale_discount)
+                * (
+                  lit(1)
+                  - lit(Config.wholesale_discount)
+                )
               )
               * (
                 lit(1)

@@ -5,7 +5,7 @@ from prophecy.libs import typed_lit
 from pricingbysegment.config.ConfigStore import *
 from pricingbysegment.udfs.UDFs import *
 
-def Columns(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def AdjustCols(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
         col("MKTSEGMENT"), 
         col("QUANTITY"), 

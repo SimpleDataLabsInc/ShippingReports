@@ -1,6 +1,4 @@
 version: 1
 configurations:
-- Household
 - default
-- Automobile
 dependencies: []
