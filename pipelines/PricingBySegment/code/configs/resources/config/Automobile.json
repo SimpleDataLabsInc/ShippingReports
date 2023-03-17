@@ -1,4 +1,6 @@
 {
   "market_segment" : "AUTOMOBILE",
-  "follow_up_criteria" : "if(TAX == 0, true, false) "
+  "follow_up_criteria" : "if(TAX == 0, true, false) ",
+  "wholesale_discount" : 0.03,
+  "" : "CUSTKEY"
 }

@@ -2,29 +2,8 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: ORDERKEY
-    type: decimal(38,0)
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: PARTKEY
-    type: decimal(38,0)
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: SUPPKEY
-    type: decimal(38,0)
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: LINENUMBER
-    type: decimal(38,0)
+  - name: MKTSEGMENT
+    type: string
     nullable: true
     metadata:
       description: ''
@@ -72,161 +51,14 @@ schema:
       description: ''
       mappings: []
       tags: []
-  - name: SHIPDATE
-    type: date
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: COMMITDATE
-    type: date
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: RECEIPTDATE
-    type: date
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: SHIPINSTRUCT
+  - name: CUSTKEY
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: SHIPMODE
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: COMMENT
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_CUSTKEY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_NAME
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_ADDRESS
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_NATIONKEY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_PHONE
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_ACCTBAL
-    type: decimal(20,10)
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_MKTSEGMENT
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: C_COMMENT
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_ORDERKEY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_CUSTKEY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_ORDERSTATUS
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_TOTALPRICE
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_ORDERDATE
-    type: date
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_ORDER-PRIORITY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_CLERK
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_SHIP-PRIORITY
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: O_COMMENT
+  - name: ORDERKEY
     type: string
     nullable: true
     metadata:

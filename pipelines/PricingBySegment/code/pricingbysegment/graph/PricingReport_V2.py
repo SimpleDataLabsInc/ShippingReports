@@ -5,7 +5,7 @@ from prophecy.libs import typed_lit
 from pricingbysegment.config.ConfigStore import *
 from pricingbysegment.udfs.UDFs import *
 
-def PricingReport(spark: SparkSession, in0: DataFrame):
+def PricingReport_V2(spark: SparkSession, in0: DataFrame):
     from delta.tables import DeltaTable, DeltaMergeBuilder
     in0.write\
         .format("delta")\

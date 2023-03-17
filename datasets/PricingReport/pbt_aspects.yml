@@ -4,14 +4,14 @@ schema:
   fields:
   - name: RETURNFLAG
     type: string
-    nullable: true
+    nullable: false
     metadata:
       description: ''
       mappings: []
       tags: []
   - name: DELIVERYSTATUS
     type: string
-    nullable: true
+    nullable: false
     metadata:
       description: ''
       mappings: []
@@ -44,9 +44,9 @@ schema:
       description: ''
       mappings: []
       tags: []
-  - name: PERCENT_RETURNED
-    type: double
-    nullable: true
+  - name: COUNT_CLEARANCE
+    type: long
+    nullable: false
     metadata:
       description: ''
       mappings: []
