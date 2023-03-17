@@ -216,57 +216,7 @@ datasets:
         createdAt: '2023-03-17 20:41:15'
         modifiedAt: '2023-03-17 20:41:15'
 templates: {}
-jobs:
-  jobs/PricingReportBatchJob:
-    name: PricingReportBatchJob
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0/2 * * * ? *
-    timeout: null
-    alerting:
-      emails: oncall@acme.com
-      onStart: true
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/Pricing
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: false
-    createdAt: '2022-12-08 21:21:01'
-    modifiedAt: '2023-03-10 18:34:34'
-    author: sparklearner123@gmail.com
-  jobs/WeeklyShipping:
-    name: WeeklyShipping
-    description: ''
-    fabricUID: 990
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/PricingBySegment
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2023-03-15 14:51:25'
-    modifiedAt: '2023-03-15 14:53:08'
-    author: sparklearner123@gmail.com
+jobs: {}
 libraries: []
 subgraphs: {}
 sqlModels: {}
