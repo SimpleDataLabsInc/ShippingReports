@@ -24,24 +24,10 @@
           },
           "optional" : false
         }, {
-          "name" : "follow_up_criteria",
-          "kind" : {
-            "type" : "spark_expression",
-            "value" : "true"
-          },
-          "optional" : false
-        }, {
           "name" : "wholesale_discount",
           "kind" : {
             "type" : "float",
             "value" : 0.05
-          },
-          "optional" : false
-        }, {
-          "name" : "column_of_interest",
-          "kind" : {
-            "type" : "string",
-            "value" : "RETURNFLAG"
           },
           "optional" : false
         } ]
@@ -52,7 +38,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "Automobile",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -66,54 +52,12 @@
     "interimModeEnabled" : true,
     "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
-      "enabled" : true,
+      "enabled" : false,
       "value" : 100
     },
     "topLevelPackage" : "pricingbysegment"
   },
   "connections" : [ {
-    "id" : "8FPP9NfuMQzy9AwZxO_8o",
-    "source" : "s2pBkdXkJdEOgl5pm9fI7$$0uzQb_hmmTktau39_lYTe",
-    "sourcePort" : "aMV4-8Y_MxHysq1XsLsKh$$l00QSFVRIKViIFZ1WpIHf",
-    "target" : "AdyXwMnAPPySa14sv8Q_V$$RTO5khHJRU03FkbFqHlzy",
-    "targetPort" : "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx"
-  }, {
-    "id" : "YESA15YUhjQ3jzRjuuYto",
-    "source" : "AdyXwMnAPPySa14sv8Q_V$$RTO5khHJRU03FkbFqHlzy",
-    "sourcePort" : "7KJ3mGAN_X009BTqPCZbE$$vx7X5hpCQep3JnefUPXxt",
-    "target" : "imR4T6-SEAF-xJ3qVCspz$$EEQCe35peSRhpbps2lJcS",
-    "targetPort" : "oA2tJHa1K0sIcxF3c1iwt$$RKIrOmy3oSoJtaxFhMgVk"
-  }, {
-    "id" : "EGpFWNxRGz--vg5b4t6zP",
-    "source" : "PsMDeZg_Pkz96yhqv_MAk$$HgGWnExM2qQsC9Rpltca1",
-    "sourcePort" : "Phrh45uRSCkiehb1OAKbY$$D_U28tQmdYamfaVbwuv4P",
-    "target" : "s2pBkdXkJdEOgl5pm9fI7$$0uzQb_hmmTktau39_lYTe",
-    "targetPort" : "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH"
-  }, {
-    "id" : "YaEQtMvVRV0qkg4enlRf5",
-    "source" : "imR4T6-SEAF-xJ3qVCspz$$EEQCe35peSRhpbps2lJcS",
-    "sourcePort" : "O0BaoaSJZAcnMs_iH3ZTX$$NpcivguS1WUNxEOwmGEfV",
-    "target" : "nYdqx5jZcjpd_gwAqvs7G$$gl1p5QgeckSAW26szYe5B",
-    "targetPort" : "KdgBFDCMillsD36xBYmVc$$KVu-iTQXPpEJt8Bjg5T-4"
-  }, {
-    "id" : "m4ihz5GR7bbvZSffrGqlc$$bbB1nVKn0WTuSYJz3GOA4",
-    "source" : "UwAYQWQjbccafov5eY6t5$$2gRmkLVNpRI54H1Jd6KcB",
-    "sourcePort" : "yqu-j3Jq7kVm-oK0n3_0f$$p3sBJYIDNgeFoM_e9meil",
-    "target" : "iXr5-Mn58FtSyOXWKO5MD$$tTVTnol5ny4QRMNqVUI0z",
-    "targetPort" : "d6JFWh1PHS7rB4nDoHpGJ$$hnVTj83o54-Z9RwiZwscq"
-  }, {
-    "id" : "jf7Pk4ylk_j6cbS6-TUBR",
-    "source" : "CN9j0FThumk_NTSc_Kini$$u07YC879vcBjyJ9eBRfmU",
-    "sourcePort" : "SM_Qub_tTq39O56uwLDK2$$nlhrRjOeMez5QFwBG06iS",
-    "target" : "iXr5-Mn58FtSyOXWKO5MD$$tTVTnol5ny4QRMNqVUI0z",
-    "targetPort" : "kyzQBiC904El8d_3hhbAl$$Jb1jyRdi4GMjNx_rzqnoi"
-  }, {
-    "id" : "aLDyNA3kwWrWQa-R8uxj_$$en5hhERwFXC6PtFCOL3Iu",
-    "source" : "iXr5-Mn58FtSyOXWKO5MD$$tTVTnol5ny4QRMNqVUI0z",
-    "sourcePort" : "mCwSjCkBD0b9UtAFJeW2Q$$UZzG4clBTqssDpfittu4U",
-    "target" : "IFiFfuKDR67eLWjS0tUzw$$P3UWwvz3P8vDgSxYIOWUC",
-    "targetPort" : "okcrRTRR09FgL_ai14SK2$$bkuyXxkM6GE6y7eqhaAGl"
-  }, {
     "id" : "msDHh45okEZRwMo_7mLnQ",
     "source" : "NVq4EgexCYu3mIc-NjHCB$$Mvz2FewliukpPG0Nvu3_K",
     "sourcePort" : "qwAmYOpKWTXscld6t9gzz$$UZIlvNxKFPa1NO65Y2Y4B",
@@ -125,24 +69,6 @@
     "sourcePort" : "5ch4yV0S7OkxoYIXikemj$$yQEEnliTmItccOXmjMJjJ",
     "target" : "9fSCN0grbscwa97q59qKI$$CpZXGIhBeWCJRAcYEOYn9",
     "targetPort" : "aXbN0dcD-ZxUkNDYa3_I6$$xz4NGyhsEi_iSkd7Bv5ly"
-  }, {
-    "id" : "3dgrfDMGuMeYNX2rF2va_",
-    "source" : "vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE",
-    "sourcePort" : "S_UumWSM4iq3i37bXJcmV$$NgfCzrCFnWQ8_fpaFTd2i",
-    "target" : "fk66P436pkoakRnyN9Sv2$$K3P_IE409RZ-Eow-NbcLp",
-    "targetPort" : "shO6yZZal2h0p5XuOzLnC$$WpKYvxI0uwvoHaAOj4twZ"
-  }, {
-    "id" : "akVzEzX2l8Abxp5ljdIb8",
-    "source" : "fk66P436pkoakRnyN9Sv2$$K3P_IE409RZ-Eow-NbcLp",
-    "sourcePort" : "RLVxei3M_TtXwn8xMaFUA$$mMiU5vd57tAeqemnittrh",
-    "target" : "02upAqUU8VIyCYlmCimJJ$$GKolPNRW7N4q8HZeZPfiL",
-    "targetPort" : "7caFJeKJgm8Kg6wAAZEBl$$w91HsoTDF3P_Voq3XwXnk"
-  }, {
-    "id" : "J36rIcD6Yo88QJ_Evl46b",
-    "source" : "02upAqUU8VIyCYlmCimJJ$$GKolPNRW7N4q8HZeZPfiL",
-    "sourcePort" : "SWCRLVudjtV0Ql9wSuXUT$$mUIMxerYTTLG7h8mIlrBA",
-    "target" : "hUG7lszgJtrIISUNt412L$$YhTQTCbld-uLfpB0DD-Xw",
-    "targetPort" : "QTJmcTS_BtmLxKgnewslb$$Dsxp5tI_jSPayxdFmHjwc"
   }, {
     "id" : "Ts2A3vZFo0A9ELFtq8tZe",
     "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
@@ -156,23 +82,17 @@
     "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
     "targetPort" : "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn"
   }, {
-    "id" : "n6LnvUfF2xV1x0iau0oR6",
+    "id" : "Argf9uGzBiFoc-8AzVICN",
     "source" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
     "sourcePort" : "804K7Hsv2AhZpXLmz6m2b$$7M7_HKyAaQRpqhUm7V_It",
-    "target" : "ACXGtZpDBT88JtAZYpSFt$$z3CMFgTACFcwO8EHzALXG",
-    "targetPort" : "Hj4LiTR8EIfRoqoqCZOlh$$FRd02TrzlFDXH2dZDaB4g"
+    "target" : "QHraJwix6MU4zkcR2JcAh$$1WegjhqC0sBHI7lizd57N",
+    "targetPort" : "jmtRAGkFjovY3at-MWOey$$gJQQztgCLMHHZY8oVIJXo"
   }, {
-    "id" : "CMnbYcedQaUpL-eKwkyzr",
-    "source" : "ghHzN-BqglUhjYUeRWntO$$X30K0cQMmNt5g7savxQ_D",
-    "sourcePort" : "M0Yf343Yb3UZmN88739XU$$__SVoAQdK3ktEG1CSFcfv",
-    "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
-    "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
-  }, {
-    "id" : "b0tPOxM1Sf7y6qAfOAIKB$$CKHhq0eHVwN4DyO7X46vX",
+    "id" : "nsXDQilU959I093LNBG9E",
     "source" : "9fSCN0grbscwa97q59qKI$$CpZXGIhBeWCJRAcYEOYn9",
     "sourcePort" : "JxRAoGF1_Bycx2nLf_myo$$dlGCSqxxQCmI1sWbqKHQo",
-    "target" : "QxelNBO7r4WrkhC8dHgRk$$LMIQaU-4CNVVRCXLji86t",
-    "targetPort" : "GbPqY9GnKug40UQtUqqqu$$QeOMy10aEvjwrKdCEUdOO"
+    "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
+    "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
   } ],
   "processes" : {
     "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog" : {
@@ -181,8 +101,8 @@
       "metadata" : {
         "label" : "Columns",
         "slug" : "Columns",
-        "x" : 420,
-        "y" : -220,
+        "x" : 520,
+        "y" : 220,
         "phase" : 0,
         "cache" : true,
         "detailedStats" : false,
@@ -405,10 +325,10 @@
       "id" : "NVq4EgexCYu3mIc-NjHCB$$Mvz2FewliukpPG0Nvu3_K",
       "component" : "Source",
       "metadata" : {
-        "label" : "OrdersNCustomers_1",
-        "slug" : "OrdersNCustomers_1",
-        "x" : 80,
-        "y" : 640,
+        "label" : "Orders",
+        "slug" : "Orders",
+        "x" : 120,
+        "y" : 320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -432,10 +352,10 @@
       "id" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "Amounts",
-        "slug" : "Amounts",
-        "x" : 780,
-        "y" : -220,
+        "label" : "Costs",
+        "slug" : "Costs",
+        "x" : 920,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -481,7 +401,7 @@
               }
             }, {
               "name" : "AVG_QTY",
-              "type" : "decimal(16,6)",
+              "type" : "decimal(18,2)",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -528,7 +448,7 @@
           "target" : "AVG_QTY",
           "expression" : {
             "format" : "sql",
-            "expression" : "avg(QUANTITY)"
+            "expression" : "cast(avg(QUANTITY)as decimal (18,2))"
           },
           "description" : "",
           "_row_id" : ""
@@ -573,40 +493,14 @@
         } ]
       }
     },
-    "hUG7lszgJtrIISUNt412L$$YhTQTCbld-uLfpB0DD-Xw" : {
-      "id" : "hUG7lszgJtrIISUNt412L$$YhTQTCbld-uLfpB0DD-Xw",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "PricingReport_V2",
-        "slug" : "PricingReport_V2",
-        "x" : 840,
-        "y" : 360,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "QTJmcTS_BtmLxKgnewslb$$Dsxp5tI_jSPayxdFmHjwc",
-          "slug" : "in0"
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/PricingReport"
-      }
-    },
     "9fSCN0grbscwa97q59qKI$$CpZXGIhBeWCJRAcYEOYn9" : {
       "id" : "9fSCN0grbscwa97q59qKI$$CpZXGIhBeWCJRAcYEOYn9",
       "component" : "Join",
       "metadata" : {
         "label" : "ByOrderkey",
         "slug" : "ByOrderkey",
-        "x" : 240,
-        "y" : 560,
+        "x" : 320,
+        "y" : 220,
         "phase" : 0,
         "cache" : true,
         "detailedStats" : false,
@@ -731,311 +625,14 @@
         "headAlias" : "in0"
       }
     },
-    "02upAqUU8VIyCYlmCimJJ$$GKolPNRW7N4q8HZeZPfiL" : {
-      "id" : "02upAqUU8VIyCYlmCimJJ$$GKolPNRW7N4q8HZeZPfiL",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "SumAmounts_V2",
-        "slug" : "SumAmounts_V2",
-        "x" : 640,
-        "y" : 360,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "7caFJeKJgm8Kg6wAAZEBl$$w91HsoTDF3P_Voq3XwXnk",
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "SWCRLVudjtV0Ql9wSuXUT$$mUIMxerYTTLG7h8mIlrBA",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "SUM_QTY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "sum(QUANTITY) "
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "AVG_QTY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "format_number(avg(QUANTITY), 2)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "SUM_CHARGE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "format_number(sum(EXTENDEDPRICE * (1 - DISCOUNT) * '$wholesale_discount' * (1 + TAX)), 2)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "COUNT_ORDER",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "count(*)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
-        "groupBy" : [ {
-          "target" : "RETURNFLAG",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "DELIVERYSTATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "description" : "",
-          "_row_id" : null
-        } ]
-      }
-    },
-    "PsMDeZg_Pkz96yhqv_MAk$$HgGWnExM2qQsC9Rpltca1" : {
-      "id" : "PsMDeZg_Pkz96yhqv_MAk$$HgGWnExM2qQsC9Rpltca1",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "Shipments_old",
-        "slug" : "Shipments_old",
-        "x" : 240,
-        "y" : 840,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "Phrh45uRSCkiehb1OAKbY$$D_U28tQmdYamfaVbwuv4P",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/Shipments"
-      }
-    },
-    "UwAYQWQjbccafov5eY6t5$$2gRmkLVNpRI54H1Jd6KcB" : {
-      "id" : "UwAYQWQjbccafov5eY6t5$$2gRmkLVNpRI54H1Jd6KcB",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "Customer_TPCH",
-        "slug" : "Customer_TPCH",
-        "x" : 60,
-        "y" : 1060,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "yqu-j3Jq7kVm-oK0n3_0f$$p3sBJYIDNgeFoM_e9meil",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/Customer_TPCH"
-      }
-    },
-    "nYdqx5jZcjpd_gwAqvs7G$$gl1p5QgeckSAW26szYe5B" : {
-      "id" : "nYdqx5jZcjpd_gwAqvs7G$$gl1p5QgeckSAW26szYe5B",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "PricingReport_old",
-        "slug" : "PricingReport_old",
-        "x" : 1040,
-        "y" : 840,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "KdgBFDCMillsD36xBYmVc$$KVu-iTQXPpEJt8Bjg5T-4",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/PricingReport"
-      }
-    },
-    "imR4T6-SEAF-xJ3qVCspz$$EEQCe35peSRhpbps2lJcS" : {
-      "id" : "imR4T6-SEAF-xJ3qVCspz$$EEQCe35peSRhpbps2lJcS",
-      "component" : "OrderBy",
-      "metadata" : {
-        "label" : "ByStatus",
-        "slug" : "ByStatus",
-        "x" : 840,
-        "y" : 840,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "oA2tJHa1K0sIcxF3c1iwt$$RKIrOmy3oSoJtaxFhMgVk",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "O0BaoaSJZAcnMs_iH3ZTX$$NpcivguS1WUNxEOwmGEfV",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "columnsSelector" : [ "oA2tJHa1K0sIcxF3c1iwt$$RKIrOmy3oSoJtaxFhMgVk##DELIVERYSTATUS", "oA2tJHa1K0sIcxF3c1iwt$$RKIrOmy3oSoJtaxFhMgVk##RETURNFLAG" ],
-        "orders" : [ {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "sortType" : "asc"
-        }, {
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "sortType" : "asc"
-        } ]
-      }
-    },
-    "QxelNBO7r4WrkhC8dHgRk$$LMIQaU-4CNVVRCXLji86t" : {
-      "id" : "QxelNBO7r4WrkhC8dHgRk$$LMIQaU-4CNVVRCXLji86t",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "JoinedShippingData_1",
-        "slug" : "JoinedShippingData_1",
-        "x" : 420,
-        "y" : 560,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "GbPqY9GnKug40UQtUqqqu$$QeOMy10aEvjwrKdCEUdOO",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/JoinedShippingData"
-      }
-    },
-    "iXr5-Mn58FtSyOXWKO5MD$$tTVTnol5ny4QRMNqVUI0z" : {
-      "id" : "iXr5-Mn58FtSyOXWKO5MD$$tTVTnol5ny4QRMNqVUI0z",
-      "component" : "Join",
-      "metadata" : {
-        "label" : "Join_1",
-        "slug" : "Join_1",
-        "x" : 260,
-        "y" : 1120,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "d6JFWh1PHS7rB4nDoHpGJ$$hnVTj83o54-Z9RwiZwscq",
-          "slug" : "in0",
-          "isStreaming" : false
-        }, {
-          "id" : "kyzQBiC904El8d_3hhbAl$$Jb1jyRdi4GMjNx_rzqnoi",
-          "slug" : "in1",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "mCwSjCkBD0b9UtAFJeW2Q$$UZzG4clBTqssDpfittu4U",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "conditions" : [ {
-          "alias" : "in1",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "in0.C_CUSTKEY = in1.O_CUSTKEY"
-          },
-          "joinType" : "inner"
-        } ],
-        "expressions" : [ ],
-        "hints" : [ {
-          "id" : "d6JFWh1PHS7rB4nDoHpGJ$$hnVTj83o54-Z9RwiZwscq",
-          "alias" : "in0",
-          "hintType" : "none",
-          "propagateColumns" : false
-        }, {
-          "id" : "kyzQBiC904El8d_3hhbAl$$Jb1jyRdi4GMjNx_rzqnoi",
-          "alias" : "in1",
-          "hintType" : "none",
-          "propagateColumns" : false
-        } ],
-        "allIn1" : null,
-        "activeTab" : "conditions",
-        "columnsSelector" : [ "kyzQBiC904El8d_3hhbAl$$Jb1jyRdi4GMjNx_rzqnoi##O_CUSTKEY", "d6JFWh1PHS7rB4nDoHpGJ$$hnVTj83o54-Z9RwiZwscq##C_CUSTKEY" ],
-        "allIn0" : null,
-        "whereClause" : null,
-        "headAlias" : "in0"
-      }
-    },
     "DesAMchieghr2sS4gP4Cj$$C7SZDqP8IFHYQ_JXwAQzw" : {
       "id" : "DesAMchieghr2sS4gP4Cj$$C7SZDqP8IFHYQ_JXwAQzw",
       "component" : "Source",
       "metadata" : {
         "label" : "Shipments",
         "slug" : "Shipments",
-        "x" : 80,
-        "y" : 420,
+        "x" : 120,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1061,8 +658,8 @@
       "metadata" : {
         "label" : "BySegment",
         "slug" : "BySegment",
-        "x" : 600,
-        "y" : -220,
+        "x" : 720,
+        "y" : 220,
         "phase" : 0,
         "cache" : true,
         "detailedStats" : false,
@@ -1211,330 +808,14 @@
         }
       }
     },
-    "s2pBkdXkJdEOgl5pm9fI7$$0uzQb_hmmTktau39_lYTe" : {
-      "id" : "s2pBkdXkJdEOgl5pm9fI7$$0uzQb_hmmTktau39_lYTe",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "Cleanup",
-        "slug" : "Cleanup",
-        "x" : 440,
-        "y" : 840,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "aMV4-8Y_MxHysq1XsLsKh$$l00QSFVRIKViIFZ1WpIHf",
-          "slug" : "out",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "QUANTITY",
-              "type" : "decimal(12,2)",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "EXTENDEDPRICE",
-              "type" : "decimal(12,2)",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DISCOUNT",
-              "type" : "decimal(12,2)",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TAX",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "RETURNFLAG",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DELIVERYSTATUS",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "CLEARANCE",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "FOLLOW_UP",
-              "type" : "boolean",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true
-      },
-      "properties" : {
-        "importLanguage" : "python",
-        "expressions" : [ {
-          "target" : "QUANTITY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "QUANTITY"
-          },
-          "description" : ""
-        }, {
-          "target" : "EXTENDEDPRICE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "EXTENDEDPRICE"
-          },
-          "description" : ""
-        }, {
-          "target" : "DISCOUNT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DISCOUNT"
-          },
-          "description" : ""
-        }, {
-          "target" : "TAX",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "cast(if(TAX == 0, 0.02, TAX) as decimal(12,2))"
-          },
-          "description" : ""
-        }, {
-          "target" : "RETURNFLAG",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "description" : ""
-        }, {
-          "target" : "DELIVERYSTATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "description" : ""
-        }, {
-          "target" : "CLEARANCE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
-          },
-          "description" : ""
-        }, {
-          "target" : "FOLLOW_UP",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "expr('$follow_up_logic')"
-          },
-          "description" : ""
-        } ],
-        "importString" : "",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##RETURNFLAG", "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##EXTENDEDPRICE", "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##QUANTITY", "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##DISCOUNT", "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##DELIVERYSTATUS", "uOMy-8f0Wi4puu3ytoxDC$$R53aaJIwlZXEdc7LyXZQH##TAX" ]
-      }
-    },
-    "AdyXwMnAPPySa14sv8Q_V$$RTO5khHJRU03FkbFqHlzy" : {
-      "id" : "AdyXwMnAPPySa14sv8Q_V$$RTO5khHJRU03FkbFqHlzy",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "SumAmounts_old",
-        "slug" : "SumAmounts_old",
-        "x" : 640,
-        "y" : 840,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "7KJ3mGAN_X009BTqPCZbE$$vx7X5hpCQep3JnefUPXxt",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "allIns" : false,
-        "doPivot" : false,
-        "aggregate" : [ {
-          "target" : "SUM_QTY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "sum(QUANTITY) "
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "AVG_QTY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "format_number(avg(QUANTITY), 2)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "SUM_CHARGE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "format_number(sum(EXTENDEDPRICE * (1 - DISCOUNT) * (1 + TAX)), 2)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "COUNT_ORDER",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "count(*)"
-          },
-          "description" : "",
-          "_row_id" : ""
-        }, {
-          "target" : "COUNT_CLEARANCE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "count_if(CLEARANCE == 'true')"
-          },
-          "description" : "",
-          "_row_id" : ""
-        } ],
-        "allowSelection" : true,
-        "pivotColumn" : null,
-        "pivotValues" : [ ],
-        "activeTab" : "groupBy",
-        "columnsSelector" : [ "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##QUANTITY", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##DELIVERYSTATUS", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##CLEARANCE", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##EXTENDEDPRICE", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##DISCOUNT", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##TAX", "8ZBtol1g8qJd6McBnqyV_$$53q8TKUBmMLKaOIMiQZhx##RETURNFLAG" ],
-        "groupBy" : [ {
-          "target" : "RETURNFLAG",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "description" : "",
-          "_row_id" : null
-        }, {
-          "target" : "DELIVERYSTATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "description" : "",
-          "_row_id" : null
-        } ]
-      }
-    },
-    "CN9j0FThumk_NTSc_Kini$$u07YC879vcBjyJ9eBRfmU" : {
-      "id" : "CN9j0FThumk_NTSc_Kini$$u07YC879vcBjyJ9eBRfmU",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "Orders_TPCH",
-        "slug" : "Orders_TPCH",
-        "x" : 100,
-        "y" : 1220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "SM_Qub_tTq39O56uwLDK2$$nlhrRjOeMez5QFwBG06iS",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/Orders_TPCH"
-      }
-    },
-    "ghHzN-BqglUhjYUeRWntO$$X30K0cQMmNt5g7savxQ_D" : {
-      "id" : "ghHzN-BqglUhjYUeRWntO$$X30K0cQMmNt5g7savxQ_D",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "JoinedShippingData",
-        "slug" : "JoinedShippingData",
-        "x" : 240,
-        "y" : -220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "M0Yf343Yb3UZmN88739XU$$__SVoAQdK3ktEG1CSFcfv",
-          "slug" : "out",
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/JoinedShippingData"
-      }
-    },
-    "IFiFfuKDR67eLWjS0tUzw$$P3UWwvz3P8vDgSxYIOWUC" : {
-      "id" : "IFiFfuKDR67eLWjS0tUzw$$P3UWwvz3P8vDgSxYIOWUC",
+    "QHraJwix6MU4zkcR2JcAh$$1WegjhqC0sBHI7lizd57N" : {
+      "id" : "QHraJwix6MU4zkcR2JcAh$$1WegjhqC0sBHI7lizd57N",
       "component" : "Target",
       "metadata" : {
-        "label" : "OrdersNCustomers",
-        "slug" : "OrdersNCustomers",
-        "x" : 420,
-        "y" : 1100,
+        "label" : "Pricing",
+        "slug" : "Pricing",
+        "x" : 1120,
+        "y" : 220,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1542,7 +823,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "okcrRTRR09FgL_ai14SK2$$bkuyXxkM6GE6y7eqhaAGl",
+          "id" : "jmtRAGkFjovY3at-MWOey$$gJQQztgCLMHHZY8oVIJXo",
           "slug" : "in0",
           "isStreaming" : false
         } ],
@@ -1551,421 +832,7 @@
         "isCustomOutputSchema" : false
       },
       "properties" : {
-        "datasetId" : "datasets/OrdersNCustomers"
-      }
-    },
-    "vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE" : {
-      "id" : "vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "AdjustCols_V2",
-        "slug" : "AdjustCols_V2",
-        "x" : 280,
-        "y" : 360,
-        "phase" : 0,
-        "cache" : true,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "Xp1MkdDO-W4KL0I9bfOBc$$L5jFXpdm4BclQ1cFU8cnB",
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "S_UumWSM4iq3i37bXJcmV$$NgfCzrCFnWQ8_fpaFTd2i",
-          "slug" : "out",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "MKTSEGMENT",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "FOLLOW_UP",
-              "type" : "boolean",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "QUANTITY",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "EXTENDEDPRICE",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DISCOUNT",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TAX",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "RETURNFLAG",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DELIVERYSTATUS",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "CLEARANCE",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "SHIPDATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ACCTBAL",
-              "type" : "decimal(20,10)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "C_CUSTKEY",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ORDERKEY",
-              "type" : "decimal(38,0)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true
-      },
-      "properties" : {
-        "importLanguage" : "python",
-        "expressions" : [ {
-          "target" : "MKTSEGMENT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "C_MKTSEGMENT"
-          },
-          "description" : ""
-        }, {
-          "target" : "FOLLOW_UP",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "expr('$follow_up_criteria')"
-          },
-          "description" : ""
-        }, {
-          "target" : "QUANTITY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "QUANTITY"
-          },
-          "description" : ""
-        }, {
-          "target" : "EXTENDEDPRICE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "EXTENDEDPRICE"
-          },
-          "description" : ""
-        }, {
-          "target" : "DISCOUNT",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DISCOUNT"
-          },
-          "description" : ""
-        }, {
-          "target" : "TAX",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "TAX"
-          },
-          "description" : ""
-        }, {
-          "target" : "RETURNFLAG",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "RETURNFLAG"
-          },
-          "description" : ""
-        }, {
-          "target" : "DELIVERYSTATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "DELIVERYSTATUS"
-          },
-          "description" : ""
-        }, {
-          "target" : "CLEARANCE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "case when (\n    DISCOUNT > 0.06\n)\nor (\n    RETURNFLAG is true\n) then 'true' else 'false' end"
-          },
-          "description" : ""
-        }, {
-          "target" : "CUSTKEY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "C_CUSTKEY"
-          },
-          "description" : ""
-        }, {
-          "target" : "ORDERKEY",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "ORDERKEY"
-          },
-          "description" : ""
-        } ],
-        "importString" : "",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ ]
-      }
-    },
-    "fk66P436pkoakRnyN9Sv2$$K3P_IE409RZ-Eow-NbcLp" : {
-      "id" : "fk66P436pkoakRnyN9Sv2$$K3P_IE409RZ-Eow-NbcLp",
-      "component" : "Filter",
-      "metadata" : {
-        "label" : "ForFollowUp_V2",
-        "slug" : "ForFollowUp_V2",
-        "x" : 460,
-        "y" : 360,
-        "phase" : 0,
-        "cache" : true,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "shO6yZZal2h0p5XuOzLnC$$WpKYvxI0uwvoHaAOj4twZ",
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "RLVxei3M_TtXwn8xMaFUA$$mMiU5vd57tAeqemnittrh",
-          "slug" : "out",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "MKTSEGMENT",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "FOLLOW_UP",
-              "type" : "boolean",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "QUANTITY",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "EXTENDEDPRICE",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DISCOUNT",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "TAX",
-              "type" : "decimal(12,2)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "RETURNFLAG",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "DELIVERYSTATUS",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "CLEARANCE",
-              "type" : "string",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "SHIPDATE",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ACCTBAL",
-              "type" : "decimal(20,10)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "C_CUSTKEY",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "ORDERKEY",
-              "type" : "decimal(38,0)",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true
-      },
-      "properties" : {
-        "columnsSelector" : [ ],
-        "condition" : {
-          "format" : "sql",
-          "expression" : "FOLLOW_UP = true\nand\nMKTSEGMENT = '$market_segment'"
-        }
-      }
-    },
-    "ACXGtZpDBT88JtAZYpSFt$$z3CMFgTACFcwO8EHzALXG" : {
-      "id" : "ACXGtZpDBT88JtAZYpSFt$$z3CMFgTACFcwO8EHzALXG",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "PricingReport_1",
-        "slug" : "PricingReport_1",
-        "x" : 980,
-        "y" : -220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "Hj4LiTR8EIfRoqoqCZOlh$$FRd02TrzlFDXH2dZDaB4g",
-          "slug" : "in0",
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/PricingReport"
+        "datasetId" : "datasets/Pricing"
       }
     }
   },
@@ -1974,278 +841,5 @@
     "outputs" : [ ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false
-  },
-  "diagnostics" : [ {
-    "property" : "$.workflow.metainfo.configuration.instances.Household",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "Configuration Instance: Household Overriding key:  which is not present in schema. Please open the json file and delete it.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.metainfo.configuration.instances.Automobile",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "Configuration Instance: Automobile Overriding key:  which is not present in schema. Please open the json file and delete it.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "Please connect input port in0",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[0].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column C_MKTSEGMENT",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[2].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column QUANTITY",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[3].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column EXTENDEDPRICE",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[4].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column DISCOUNT",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[5].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column TAX",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[6].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column RETURNFLAG",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[7].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column DELIVERYSTATUS",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[8].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column DISCOUNT",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[8].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column RETURNFLAG",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[9].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column C_CUSTKEY",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.vlS3aVc3oLV3Mef-4t7aG$$RkRI_GGfPjp_gmta14FhE.properties.expressions[10].expression.expression",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "No match found for column ORDERKEY",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.fk66P436pkoakRnyN9Sv2$$K3P_IE409RZ-Eow-NbcLp",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "One of the upstream gems is broken. Please, fix it first.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.02upAqUU8VIyCYlmCimJJ$$GKolPNRW7N4q8HZeZPfiL",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "One of the upstream gems is broken. Please, fix it first.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.hUG7lszgJtrIISUNt412L$$YhTQTCbld-uLfpB0DD-Xw",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "One of the upstream gems is broken. Please, fix it first.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  } ]
+  }
 }

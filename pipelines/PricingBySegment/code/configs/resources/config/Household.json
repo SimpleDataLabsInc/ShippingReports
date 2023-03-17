@@ -1,6 +1,4 @@
 {
   "market_segment" : "HOUSEHOLD",
-  "follow_up_criteria" : "if((QUANTITY > 5), true, false)",
-  "wholesale_discount" : 0.15,
-  "" : "ORDERKEY"
+  "wholesale_discount" : 0.15
 }
