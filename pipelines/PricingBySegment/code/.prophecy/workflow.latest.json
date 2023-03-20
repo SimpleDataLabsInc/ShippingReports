@@ -16,7 +16,21 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "market_segment",
+          "kind" : {
+            "type" : "string",
+            "value" : "AUTOMOBILE"
+          },
+          "optional" : false
+        }, {
+          "name" : "wholesale_discount",
+          "kind" : {
+            "type" : "float",
+            "value" : 0.1
+          },
+          "optional" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -24,7 +38,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "default",
+      "selected" : "HouseholdVendor",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -68,7 +82,7 @@
     "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
   }, {
-    "id" : "8Tih0OCESq4JrZaOj_H_c",
+    "id" : "XpKUu5S9mN30aVpE6Fbbj",
     "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "sourcePort" : "FRZPYqyd9qsHI8EYfpVoz$$2m-s2vKUtFKOPCzPuH4pD",
     "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",

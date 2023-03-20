@@ -26,7 +26,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-03-20 16:34:53'
+    modifiedAt: '2023-03-20 18:14:06'
     datasets:
       inputs:
       - datasets/OrdersNCustomers
@@ -205,7 +205,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-17 20:41:15'
-    modifiedAt: '2023-03-20 16:34:40'
+    modifiedAt: '2023-03-20 18:13:35'
     mode: batch
     physicalDatasets:
       dev:
@@ -216,7 +216,32 @@ datasets:
         createdAt: '2023-03-17 20:41:15'
         modifiedAt: '2023-03-17 20:41:15'
 templates: {}
-jobs: {}
+jobs:
+  jobs/WeeklyShippingJob:
+    name: WeeklyShippingJob
+    description: weekly job to run shipping pipeline specific to each vendor
+    fabricUID: 990
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 1/1 * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/PricingBySegment
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: true
+    createdAt: '2023-03-20 16:54:53'
+    modifiedAt: '2023-03-20 16:55:54'
+    author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
 sqlModels: {}
