@@ -16,21 +16,7 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ {
-          "name" : "market_segment",
-          "kind" : {
-            "type" : "string",
-            "value" : "AUTOMOBILE"
-          },
-          "optional" : false
-        }, {
-          "name" : "wholesale_discount",
-          "kind" : {
-            "type" : "float",
-            "value" : 0.1
-          },
-          "optional" : false
-        } ]
+        "fields" : [ ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -38,7 +24,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "HouseholdVendor",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
