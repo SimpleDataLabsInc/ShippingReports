@@ -10,4 +10,4 @@ def Pricing(spark: SparkSession, in0: DataFrame):
     in0.write\
         .format("delta")\
         .mode("overwrite")\
-        .save(f"dbfs:/Prophecy/sparklearner123@gmail.com/Department/{Config.market_segment}/PricingReport")
+        .save(f"dbfs:/Prophecy/sparklearner123@gmail.com/Vendor/{Config.market_segment}/PricingReport")
