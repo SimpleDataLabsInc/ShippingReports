@@ -20,13 +20,13 @@ pipelines:
       - datasets/PricingReport
     dependencies: {}
   pipelines/PricingBySegment:
-    name: PricingBySegment
+    name: ShippingBySegment
     description: Pricing for shipments configured per shipping segment
     author: sparklearner123@gmail.com
     mode: batch
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-03-20 01:19:55'
+    modifiedAt: '2023-03-20 01:29:39'
     datasets:
       inputs:
       - datasets/OrdersNCustomers

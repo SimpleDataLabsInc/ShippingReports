@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-    name = 'PricingBySegment',
+    name = 'ShippingBySegment',
     version = '1.0',
     packages = find_packages(include = ('pricingbysegment*', )) + ["prophecy_config_instances"],
     package_dir = {'prophecy_config_instances' : 'configs/resources/config'},
