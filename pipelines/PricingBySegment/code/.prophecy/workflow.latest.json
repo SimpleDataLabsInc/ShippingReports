@@ -436,7 +436,7 @@
           "target" : "SUM_CHARGE",
           "expression" : {
             "format" : "sql",
-            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) * (1 + TAX)\n  )\n as decimal (18,2))"
+            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) \n  )\n as decimal (18,2))"
           },
           "description" : "",
           "_row_id" : ""
@@ -453,7 +453,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##TAX", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##RETURNFLAG", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DELIVERYSTATUS", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DISCOUNT", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##EXTENDEDPRICE", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##QUANTITY" ],
+        "columnsSelector" : [ "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##RETURNFLAG", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DELIVERYSTATUS", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DISCOUNT", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##EXTENDEDPRICE", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##QUANTITY" ],
         "groupBy" : [ {
           "target" : "RETURNFLAG",
           "expression" : {
