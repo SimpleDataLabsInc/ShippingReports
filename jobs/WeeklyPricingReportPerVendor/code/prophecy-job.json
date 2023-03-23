@@ -2,9 +2,9 @@
   "metainfo" : {
     "type" : "Databricks",
     "fabricId" : "990",
-    "jobId" : "jobs/WeeklyShippingJob",
-    "name" : "WeeklyShippingJob",
-    "schedule" : "0 0 0 1/1 * ? *",
+    "jobId" : "jobs/WeeklyPricingReportPerVendor",
+    "name" : "WeeklyPricingReportPerVendor",
+    "schedule" : "0 0 0 ? * 3 *",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
@@ -69,8 +69,8 @@
     } ]
   },
   "processes" : {
-    "gzMFIJWVpmJJQVmCKGbmR$$5vHVUeoqBBxFTiGOWSBlR" : {
-      "id" : "gzMFIJWVpmJJQVmCKGbmR$$5vHVUeoqBBxFTiGOWSBlR",
+    "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT" : {
+      "id" : "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT",
       "component" : "Pipeline",
       "metadata" : {
         "label" : "AutoVendor",
@@ -80,10 +80,10 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "LvF_GC-PVML3hYU9BY9yM$$NezA-HrwZJw-g6wJD9qKy"
+          "id" : "HXOpvI5dA_QKv2vVP1G_U$$N6PI8GHQte2ysXyw8MTnU"
         } ],
         "outputs" : [ {
-          "id" : "55CvrjPSqqSgYICtFTyI9$$_6Ni7N8MDFTuxDvuXL-2H"
+          "id" : "R1tBaXfYsDZNGZuFLL6g3$$6yO76HjQmI7AQtvEaTWOZ"
         } ]
       },
       "settings" : {
@@ -121,21 +121,21 @@
         }
       }
     },
-    "7VFlgn-z_RbxKYbkDesZt$$NMBtaJdZWjTsiifsFsK7h" : {
-      "id" : "7VFlgn-z_RbxKYbkDesZt$$NMBtaJdZWjTsiifsFsK7h",
+    "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX" : {
+      "id" : "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "HouseholdItems",
-        "slug" : "HouseholdItems",
-        "x" : 280,
+        "label" : "HouseholdVendor",
+        "slug" : "HouseholdVendor",
+        "x" : 440,
         "y" : 160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "IKRSWh-E4OcEzaUJ5W4vJ$$v27xmP67d_P0KUFGlcRU2"
+          "id" : "Sy1M6vohuxSNxqqU_rP2n$$_4aeZPcovh8DWHMWcJQAS"
         } ],
         "outputs" : [ {
-          "id" : "1RByV8P5PY88ZgLO0ie4H$$7XBbvGWd7W1pEuQbY_4IQ"
+          "id" : "x-2DWZy7YuWqbK09z8Yus$$QWo-lyjNWID2jzUN2nGQx"
         } ]
       },
       "settings" : {

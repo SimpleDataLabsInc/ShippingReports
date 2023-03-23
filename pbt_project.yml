@@ -26,7 +26,7 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-03-20 18:15:11'
+    modifiedAt: '2023-03-23 19:25:06'
     datasets:
       inputs:
       - datasets/OrdersNCustomers
@@ -205,7 +205,7 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-17 20:41:15'
-    modifiedAt: '2023-03-20 18:13:35'
+    modifiedAt: '2023-03-20 18:24:19'
     mode: batch
     physicalDatasets:
       dev:
@@ -217,15 +217,15 @@ datasets:
         modifiedAt: '2023-03-17 20:41:15'
 templates: {}
 jobs:
-  jobs/WeeklyShippingJob:
-    name: WeeklyShippingJob
-    description: weekly job to run shipping pipeline specific to each vendor
+  jobs/WeeklyPricingReportPerVendor:
+    name: WeeklyPricingReportPerVendor
+    description: generates a weekly report specific to each retail vendor
     fabricUID: 990
     scheduler:
       Databricks: {}
     cloudProvider: null
     jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
+    scheduleCron: 0 0 0 ? * 3 *
     timeout: null
     alerting:
       emails: ''
@@ -239,8 +239,8 @@ jobs:
         Single: {}
       clusterId: null
     enabled: true
-    createdAt: '2023-03-20 16:54:53'
-    modifiedAt: '2023-03-20 16:55:54'
+    createdAt: '2023-03-20 20:44:37'
+    modifiedAt: '2023-03-22 21:44:56'
     author: sparklearner123@gmail.com
 libraries: []
 subgraphs: {}
