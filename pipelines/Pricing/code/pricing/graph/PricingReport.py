@@ -9,5 +9,6 @@ def PricingReport(spark: SparkSession, in0: DataFrame):
     from delta.tables import DeltaTable, DeltaMergeBuilder
     in0.write\
         .format("delta")\
+        .option("mergeSchema", True)\
         .mode("overwrite")\
-        .save(f"dbfs:/Prophecy/sparklearner123@gmail.com/Shipping/{Config.env}/Report")
+        .save("dbfs:/Prophecy/sparklearner123@gmail.com/Shipping/Report")

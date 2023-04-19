@@ -7,7 +7,9 @@
     "mode" : "batch",
     "udfs" : {
       "language" : "python",
-      "udfs" : [ ]
+      "udfs" : [ ],
+      "functionPackageName" : "sparklearner123gmail.com_team.shippingreports.functions",
+      "sharedFunctionPackageNames" : [ "sparklearner123gmail.com_team.helloworld.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -16,7 +18,31 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "market_segment",
+          "kind" : {
+            "type" : "string",
+            "value" : "MACHINERY"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false
+        }, {
+          "name" : "wholesale_discount",
+          "kind" : {
+            "type" : "float",
+            "value" : 0.1
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false
+        }, {
+          "name" : "FoodOrders",
+          "kind" : {
+            "type" : "record",
+            "fields" : [ ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : true
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -24,7 +50,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "default",
+      "selected" : "AutoVendor",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -33,6 +59,11 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "3246",
+      "projectName" : "HelloWorld",
+      "externalDependencies" : [ ]
+    } ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -41,7 +72,8 @@
       "enabled" : false,
       "value" : 100
     },
-    "topLevelPackage" : "pricingbysegment"
+    "topLevelPackage" : "pricingbysegment",
+    "configurationVersion" : "v1"
   },
   "connections" : [ {
     "id" : "msDHh45okEZRwMo_7mLnQ",
@@ -68,9 +100,15 @@
     "target" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "targetPort" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm"
   }, {
-    "id" : "4oBv_yJMC3mRPIpDM5yFZ",
+    "id" : "x1eh2zQ-_yFaSE61Datok$$dfg8mkf6U8Qo1iGZGJLMq",
     "source" : "S7Uq6Rc2wMV-gAbeby4ux$$JAueZycoDSuqzLA_xqFog",
     "sourcePort" : "FRZPYqyd9qsHI8EYfpVoz$$2m-s2vKUtFKOPCzPuH4pD",
+    "target" : "RbT5UVw7s2pY8Zt4mJlJO$$EoPEbfaGWFToYCBFU8rb0",
+    "targetPort" : "v4_kon3d4iKRiBkHPYsqz$$ut8iNcW81oJlAfgKYb4yJ"
+  }, {
+    "id" : "-09plqpvcdPn6qyNp4ktK",
+    "source" : "RbT5UVw7s2pY8Zt4mJlJO$$EoPEbfaGWFToYCBFU8rb0",
+    "sourcePort" : "kbJmJMKjhqT9b4iMuUJSG$$7tOF_TyKvvNaodQ684mrQ",
     "target" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
     "targetPort" : "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn"
   } ],
@@ -92,6 +130,91 @@
         "inputs" : [ {
           "id" : "8mYWUkw15f4mTJoUR2shi$$dKaIoa9L3vS6Zkgi-6nSm",
           "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "MKTSEGMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDERKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "outputs" : [ {
@@ -318,8 +441,7 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "qwAmYOpKWTXscld6t9gzz$$UZIlvNxKFPa1NO65Y2Y4B",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
@@ -327,6 +449,420 @@
       "properties" : {
         "datasetId" : "datasets/OrdersNCustomers"
       }
+    },
+    "RbT5UVw7s2pY8Zt4mJlJO$$EoPEbfaGWFToYCBFU8rb0" : {
+      "id" : "RbT5UVw7s2pY8Zt4mJlJO$$EoPEbfaGWFToYCBFU8rb0",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "BySegment",
+        "slug" : "BySegment",
+        "x" : 720,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "v4_kon3d4iKRiBkHPYsqz$$ut8iNcW81oJlAfgKYb4yJ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "MKTSEGMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FOLLOW_UP",
+              "type" : "boolean",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CLEARANCE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCTBAL",
+              "type" : "decimal(20,10)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDERKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "kbJmJMKjhqT9b4iMuUJSG$$7tOF_TyKvvNaodQ684mrQ",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "v4_kon3d4iKRiBkHPYsqz$$ut8iNcW81oJlAfgKYb4yJ##MKTSEGMENT" ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "MKTSEGMENT = '$market_segment'"
+        }
+      }
+    },
+    "LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N" : {
+      "id" : "LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+      "component" : "Subgraph",
+      "metadata" : {
+        "label" : "FoodOrders",
+        "slug" : "FoodOrders",
+        "x" : 335.4,
+        "y" : 499.21364135742186,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "wOFP5UOMvgKzhVBd5eqAf$$qExSi61-BETpaKLMdWOEd",
+          "slug" : "in0"
+        }, {
+          "id" : "jcYA4feGH19hmR1ps-wbM$$DgO6w7XSpq56yCgVbflTZ",
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "O5iX_Eb97F9fkkrtGvbHg$$L_-SqXi5UFefykGvlI5O8",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "packageName" : "com.acme",
+        "externalId" : "gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.0.7&projectSubscriptionProjectId=3246&path=subgraphs/FoodOrders",
+        "name" : "FoodOrders"
+      },
+      "connections" : [ {
+        "id" : "gQkT1p1oAVuuh1pn4JuOA",
+        "source" : "pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T",
+        "sourcePort" : "uSjGI6-0lGGNqRUWaflsm$$ixSKpp7r87micNhZ2nFkC",
+        "target" : "DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG",
+        "targetPort" : "wogg6iTC94qsWI4yl7KoI$$Cm0ca4-bGIDMnKs0x7ghA"
+      }, {
+        "id" : "9cUFE2pMthiYVBOgt1e9L",
+        "source" : "DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG",
+        "sourcePort" : "Kaf72iRtwk8xnPp2aXGWn$$1EUR0-D04lRRXnLFikjgW",
+        "target" : "eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG",
+        "targetPort" : "CcFTxblPmcuif5Xzw4xQY$$KlX1Dp1c0e-Sdy9k9y49R"
+      }, {
+        "id" : "gTfMxoicqZjTynK3K171U",
+        "source" : "LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+        "sourcePort" : "wOFP5UOMvgKzhVBd5eqAf$$qExSi61-BETpaKLMdWOEd",
+        "target" : "pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T",
+        "targetPort" : "9xWfFqpx1cEeJQsWs5XGE$$eSGlfG_4ygpr3Sejem6uV"
+      }, {
+        "id" : "BKsPpJ9jg4sn3561-FCaZ",
+        "source" : "LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+        "sourcePort" : "jcYA4feGH19hmR1ps-wbM$$DgO6w7XSpq56yCgVbflTZ",
+        "target" : "pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T",
+        "targetPort" : "cdHF9j1PAMm-V1q7szVJ5$$GB6SHlBzeqq_a5kwRPogg"
+      }, {
+        "id" : "hHobHZnwi0UUHexq4gC-o",
+        "source" : "eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG",
+        "sourcePort" : "pf2_4IBk_dTudiQLrwFDn$$XcJ9VeqQWV2OYj08lmr3o",
+        "target" : "LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+        "targetPort" : "O5iX_Eb97F9fkkrtGvbHg$$L_-SqXi5UFefykGvlI5O8"
+      } ],
+      "processes" : {
+        "eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG" : {
+          "id" : "eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG",
+          "component" : "OrderBy",
+          "metadata" : {
+            "label" : "SortBiggestOrders_1_1_1",
+            "slug" : "SortBiggestOrders_1_1_1",
+            "x" : 760,
+            "y" : 260,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "CcFTxblPmcuif5Xzw4xQY$$KlX1Dp1c0e-Sdy9k9y49R",
+              "slug" : "in0"
+            } ],
+            "outputs" : [ {
+              "id" : "pf2_4IBk_dTudiQLrwFDn$$XcJ9VeqQWV2OYj08lmr3o",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false
+          },
+          "properties" : {
+            "columnsSelector" : [ ],
+            "orders" : [ {
+              "expression" : {
+                "format" : "sql",
+                "expression" : "amounts"
+              },
+              "sortType" : "desc"
+            } ]
+          }
+        },
+        "pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T" : {
+          "id" : "pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T",
+          "component" : "Join",
+          "metadata" : {
+            "label" : "PerCustomer_1_1_1",
+            "slug" : "PerCustomer_1_1_1",
+            "x" : 360,
+            "y" : 260,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "9xWfFqpx1cEeJQsWs5XGE$$eSGlfG_4ygpr3Sejem6uV",
+              "slug" : "in0"
+            }, {
+              "id" : "cdHF9j1PAMm-V1q7szVJ5$$GB6SHlBzeqq_a5kwRPogg",
+              "slug" : "in1"
+            } ],
+            "outputs" : [ {
+              "id" : "uSjGI6-0lGGNqRUWaflsm$$ixSKpp7r87micNhZ2nFkC",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false
+          },
+          "properties" : {
+            "conditions" : [ {
+              "alias" : "in1",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "in0.customer_id = in1.customer_id"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "target" : "first_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "in0.first_name"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "last_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "in0.last_name"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "amount",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "in1.amount"
+              },
+              "description" : "",
+              "_row_id" : null
+            }, {
+              "target" : "customer_id",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "in0.customer_id"
+              },
+              "description" : "",
+              "_row_id" : null
+            } ],
+            "hints" : [ {
+              "id" : "9xWfFqpx1cEeJQsWs5XGE$$UrB2ihb_ViEFEIgGkTy0v",
+              "alias" : "in0",
+              "hintType" : "none",
+              "propagateColumns" : false
+            }, {
+              "id" : "cdHF9j1PAMm-V1q7szVJ5$$tL3Y0gWPjPZkGwIPpRH4Y",
+              "alias" : "in1",
+              "hintType" : "none",
+              "propagateColumns" : false
+            } ],
+            "allIn1" : null,
+            "activeTab" : "conditions",
+            "columnsSelector" : [ ],
+            "allIn0" : null,
+            "whereClause" : null,
+            "headAlias" : "in0"
+          }
+        },
+        "DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG" : {
+          "id" : "DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG",
+          "component" : "Aggregate",
+          "metadata" : {
+            "label" : "TotalByCustomer_1_1_1",
+            "slug" : "TotalByCustomer_1_1_1",
+            "x" : 560,
+            "y" : 260,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "wogg6iTC94qsWI4yl7KoI$$Cm0ca4-bGIDMnKs0x7ghA",
+              "slug" : "in0"
+            } ],
+            "outputs" : [ {
+              "id" : "Kaf72iRtwk8xnPp2aXGWn$$1EUR0-D04lRRXnLFikjgW",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false
+          },
+          "properties" : {
+            "doPivot" : false,
+            "aggregate" : [ {
+              "target" : "first_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "first(first_name)"
+              },
+              "description" : ""
+            }, {
+              "target" : "last_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "first(last_name)"
+              },
+              "description" : ""
+            }, {
+              "target" : "amounts",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "sum(amount)"
+              },
+              "description" : ""
+            } ],
+            "pivotColumn" : {
+              "format" : "sql",
+              "expression" : "col_name"
+            },
+            "pivotValues" : [ ],
+            "activeTab" : "groupBy",
+            "columnsSelector" : [ "89787##customer_id", "89787##first_name", "89787##last_name", "89787##amount" ],
+            "groupBy" : [ {
+              "target" : "customer_id",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "customer_id"
+              },
+              "description" : ""
+            } ]
+          }
+        }
+      },
+      "externalDependencies" : [ ]
     },
     "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe" : {
       "id" : "8Mp3C9BE6TOABTp8JkZNb$$XPitnhS67-102QlrAEufe",
@@ -345,6 +881,127 @@
         "inputs" : [ {
           "id" : "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn",
           "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "MKTSEGMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FOLLOW_UP",
+              "type" : "boolean",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CLEARANCE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCTBAL",
+              "type" : "decimal(20,10)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORDERKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "outputs" : [ {
@@ -436,7 +1093,7 @@
           "target" : "SUM_CHARGE",
           "expression" : {
             "format" : "sql",
-            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - DISCOUNT) \n  )\n as decimal (18,2))"
+            "expression" : "cast(\n  sum(\n    EXTENDEDPRICE * (1 - '$wholesale_discount') \n  )\n as decimal (18,2))"
           },
           "description" : "",
           "_row_id" : ""
@@ -453,7 +1110,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##RETURNFLAG", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DELIVERYSTATUS", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DISCOUNT", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##EXTENDEDPRICE", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##QUANTITY" ],
+        "columnsSelector" : [ "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##DELIVERYSTATUS", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##RETURNFLAG", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##QUANTITY", "JUsR1yMs0Gr4ourpvsl56$$mc4zYqS2Q7Y-pwUhSoURn##EXTENDEDPRICE" ],
         "groupBy" : [ {
           "target" : "RETURNFLAG",
           "expression" : {
@@ -490,16 +1147,320 @@
         "inputs" : [ {
           "id" : "aXbN0dcD-ZxUkNDYa3_I6$$xz4NGyhsEi_iSkd7Bv5ly",
           "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "ORDERKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SUPPKEY",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LINENUMBER",
+              "type" : "decimal(38,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "QUANTITY",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EXTENDEDPRICE",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DISCOUNT",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAX",
+              "type" : "decimal(12,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "COMMITDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RECEIPTDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPINSTRUCT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SHIPMODE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "COMMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         }, {
           "id" : "zrK5UhFFLBsK-abtuP7Fg$$es16pY48O2Fub7WYHczkZ",
           "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "C_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_ADDRESS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_NATIONKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_PHONE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_ACCTBAL",
+              "type" : "decimal(20,10)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_MKTSEGMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "C_COMMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_CUSTKEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_TOTALPRICE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDERDATE",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_ORDER-PRIORITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_CLERK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_SHIP-PRIORITY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "O_COMMENT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "outputs" : [ {
           "id" : "JxRAoGF1_Bycx2nLf_myo$$dlGCSqxxQCmI1sWbqKHQo",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
@@ -622,8 +1583,7 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "5ch4yV0S7OkxoYIXikemj$$yQEEnliTmItccOXmjMJjJ",
-          "slug" : "out",
-          "isStreaming" : false
+          "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
@@ -649,6 +1609,64 @@
         "inputs" : [ {
           "id" : "jmtRAGkFjovY3at-MWOey$$gJQQztgCLMHHZY8oVIJXo",
           "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "RETURNFLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DELIVERYSTATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SUM_QTY",
+              "type" : "decimal(22,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AVG_QTY",
+              "type" : "decimal(18,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SUM_CHARGE",
+              "type" : "decimal(18,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "COUNT_ITEM",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
           "isStreaming" : false
         } ],
         "outputs" : [ ],
@@ -665,5 +1683,326 @@
     "outputs" : [ ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Please connect input port in0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Please connect input port in1",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Gems inside subgraph are broken",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in0.customer_id [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.conditions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in1.customer_id [Conditions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.expressions[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in0.first_name [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.expressions[1].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in0.last_name [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.expressions[2].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in1.amount [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.properties.expressions[3].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column in0.customer_id [Expressions]",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG.properties.orders[0].expression.expression",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "No match found for column amounts",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG.test.unitTests[0].data.CcFTxblPmcuif5Xzw4xQY.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: CcFTxblPmcuif5Xzw4xQY in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.eGiH_SMnZC5nZWb0-iwOb$$MnWXojhYknpjEDek0YGzG.test.unitTests[0].data.pf2_4IBk_dTudiQLrwFDn.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: pf2_4IBk_dTudiQLrwFDn in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.test.unitTests[0].data.cdHF9j1PAMm-V1q7szVJ5.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: cdHF9j1PAMm-V1q7szVJ5 in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.test.unitTests[0].data.9xWfFqpx1cEeJQsWs5XGE.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: 9xWfFqpx1cEeJQsWs5XGE in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.pwjpHru7eweYubvuW85xh$$c9-TUrJNrIcn5WQk0kr3T.test.unitTests[0].data.uSjGI6-0lGGNqRUWaflsm.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: uSjGI6-0lGGNqRUWaflsm in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG.test.unitTests[0].data.Kaf72iRtwk8xnPp2aXGWn.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: Kaf72iRtwk8xnPp2aXGWn in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.LHTFijmp0501rzFquMgSn$$JDqyLO8_R5nKSS6emhZ0N.processes.DWEguzOmkYpXHPxiD81Tt$$uRdRFrAp87EAx8O6112TG.test.unitTests[0].data.wogg6iTC94qsWI4yl7KoI.portId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "invalid portId: wogg6iTC94qsWI4yl7KoI in test Unit Test 0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }

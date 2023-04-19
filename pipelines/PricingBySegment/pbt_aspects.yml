@@ -1,4 +1,7 @@
 version: 1
 configurations:
 - default
+- HouseholdVendor
+- AutoVendor
+- MachineryVendor
 dependencies: []

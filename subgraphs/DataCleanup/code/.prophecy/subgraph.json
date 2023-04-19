@@ -1,0 +1,86 @@
+{
+  "id" : "nvo_qMa1HOyaHqAZ5T5KC",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "mt1c17-K7HjinSr4Ncjnv",
+      "slug" : "in0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "EcyPhPxffkz6v4_HGOnvo",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  },
+  "properties" : {
+    "packageName" : "com.munge"
+  },
+  "connections" : [ {
+    "id" : "jwCZLGN8fBmpADnN0YRZe",
+    "source" : "nvo_qMa1HOyaHqAZ5T5KC",
+    "sourcePort" : "mt1c17-K7HjinSr4Ncjnv",
+    "target" : "negzGNQqpPUMtkFsK3EG9",
+    "targetPort" : "FSknFSVkKaaSswz94jNTk"
+  }, {
+    "id" : "RtqJg-r8YyHlrvphhyFqF",
+    "source" : "negzGNQqpPUMtkFsK3EG9",
+    "sourcePort" : "On6Iln9yU-SkRhxokPMne",
+    "target" : "nvo_qMa1HOyaHqAZ5T5KC",
+    "targetPort" : "EcyPhPxffkz6v4_HGOnvo"
+  } ],
+  "processes" : {
+    "negzGNQqpPUMtkFsK3EG9" : {
+      "id" : "negzGNQqpPUMtkFsK3EG9",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "DataCleanup_1",
+        "slug" : "DataCleanup_1",
+        "x" : 220,
+        "y" : 460,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "FSknFSVkKaaSswz94jNTk",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "On6Iln9yU-SkRhxokPMne",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "true"
+        }
+      }
+    }
+  },
+  "externalDependencies" : [ ]
+}

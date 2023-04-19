@@ -3,36 +3,66 @@ description: ''
 version: 1.1.6
 author: sparklearner123@gmail.com
 language: python
-buildSystem: wheel
+buildSystem: ''
+buildSystemDetails:
+  artefactID: shippingreports
+  parentArtefactID: sparklearner123gmail.com_team
+  buildSystem: wheel
+  author: null
+  createdAt: '2023-03-31 18:30:26'
+  modifiedAt: '2023-03-31 18:30:26'
 pipelines:
   pipelines/Pricing:
     name: Pricing
     description: creates a report summarizing prices, discounts, and shipping status
     author: sparklearner123@gmail.com
     mode: batch
+    artefactID: ''
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-03-13 16:16:34'
+    modifiedAt: '2023-04-06 06:42:37'
     datasets:
       inputs:
       - datasets/Shipments
       outputs:
       - datasets/PricingReport
+    subgraphs: []
     dependencies: {}
   pipelines/PricingBySegment:
     name: ShippingBySegment
     description: Pricing for shipments configured per shipping segment
     author: sparklearner123@gmail.com
     mode: batch
+    artefactID: ''
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-03-23 20:42:23'
+    modifiedAt: '2023-04-11 15:52:04'
     datasets:
       inputs:
       - datasets/OrdersNCustomers
       - datasets/Shipments
       outputs:
       - datasets/Pricing
+    subgraphs:
+    - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.0.7&projectSubscriptionProjectId=3246&path=subgraphs/FoodOrders
+    dependencies: {}
+  pipelines/Retail:
+    name: Retail
+    description: ''
+    author: sparklearner123@gmail.com
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2023-04-18 21:59:00'
+    modifiedAt: '2023-04-18 22:10:25'
+    datasets:
+      inputs:
+      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/customers
+      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/orders
+      outputs:
+      - datasets/Report
+    subgraphs:
+    - subgraphs/DataCleanup
     dependencies: {}
 datasets:
   datasets/Shipments:
@@ -215,6 +245,21 @@ datasets:
         author: sparklearner123@gmail.com
         createdAt: '2023-03-17 20:41:15'
         modifiedAt: '2023-03-17 20:41:15'
+  datasets/Report:
+    name: Report
+    description: ''
+    author: sparklearner123@gmail.com
+    createdAt: '2023-04-18 22:03:00'
+    modifiedAt: '2023-04-18 22:03:00'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 990
+        datasetType: File
+        description: ''
+        author: sparklearner123@gmail.com
+        createdAt: '2023-04-18 22:03:00'
+        modifiedAt: '2023-04-18 22:03:00'
 templates: {}
 jobs:
   jobs/WeeklyPricingReportPerVendor:
@@ -242,10 +287,34 @@ jobs:
     createdAt: '2023-03-20 20:44:37'
     modifiedAt: '2023-03-22 21:44:56'
     author: sparklearner123@gmail.com
-libraries: []
-subgraphs: {}
+functions:
+  author: null
+  createdAt: '2023-03-31 18:30:26'
+  modifiedAt: '2023-03-31 18:30:26'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs:
+  subgraphs/DataCleanup:
+    name: DataCleanup
+    description: ''
+    author: sparklearner123@gmail.com
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2023-04-18 22:10:12'
+    modifiedAt: '2023-04-18 22:10:12'
 sqlModels: {}
 sqlPipeline: null
 dependencies: []
-projectDependencies: {}
+projectDependencies:
+  '3246':
+    projectUID: 3246
+    projectName: HelloWorld
+    repositoryPath: gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=
+    version: HelloWorld/1.1.9
+    author: null
+    createdAt: '2023-04-18 22:00:11'
+    modifiedAt: '2023-04-18 22:00:11'
 pipelineConfigurations: {}

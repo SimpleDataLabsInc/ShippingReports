@@ -11,6 +11,8 @@ def SumAmounts(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return df1.agg(
         sum(col("QUANTITY")).alias("SUM_QTY"), 
         avg(col("QUANTITY")).cast(DecimalType(18, 2)).alias("AVG_QTY"), 
-        sum((col("EXTENDEDPRICE") * (lit(1) - col("DISCOUNT")))).cast(DecimalType(18, 2)).alias("SUM_CHARGE"), 
+        sum((col("EXTENDEDPRICE") * (lit(1) - lit(Config.wholesale_discount))))\
+          .cast(DecimalType(18, 2))\
+          .alias("SUM_CHARGE"), 
         count(lit(1)).alias("COUNT_ITEM")
     )
