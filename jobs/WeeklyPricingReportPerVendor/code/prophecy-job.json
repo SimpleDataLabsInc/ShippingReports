@@ -1,0 +1,178 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "990",
+    "jobId" : "jobs/WeeklyPricingReportPerVendor",
+    "name" : "WeeklyPricingReportPerVendor",
+    "schedule" : "0 0 0 ? * 3 *",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : true,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "1609",
+      "name" : "UnityCatalogClusters",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "990",
+      "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "1045",
+      "name" : "Photon",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT" : {
+      "id" : "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "AutoVendor",
+        "slug" : "AutoVendor",
+        "x" : 140,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HXOpvI5dA_QKv2vVP1G_U$$N6PI8GHQte2ysXyw8MTnU"
+        } ],
+        "outputs" : [ {
+          "id" : "R1tBaXfYsDZNGZuFLL6g3$$6yO76HjQmI7AQtvEaTWOZ"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/PricingBySegment",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "market_segment",
+            "kind" : {
+              "type" : "string",
+              "value" : "AUTOMOBILE"
+            },
+            "optional" : false
+          }, {
+            "name" : "wholesale_discount",
+            "kind" : {
+              "type" : "float",
+              "value" : 0.03
+            },
+            "optional" : false
+          } ],
+          "instances" : {
+            "ShippingReports" : [ "default", "HouseholdVendor", "AutoVendor", "MachineryVendor" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "AutoVendor"
+        }
+      }
+    },
+    "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX" : {
+      "id" : "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "HouseholdVendor",
+        "slug" : "HouseholdVendor",
+        "x" : 440,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Sy1M6vohuxSNxqqU_rP2n$$_4aeZPcovh8DWHMWcJQAS"
+        } ],
+        "outputs" : [ {
+          "id" : "x-2DWZy7YuWqbK09z8Yus$$QWo-lyjNWID2jzUN2nGQx"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/PricingBySegment",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "market_segment",
+            "kind" : {
+              "type" : "string",
+              "value" : "HOUSEHOLD"
+            },
+            "optional" : false
+          }, {
+            "name" : "wholesale_discount",
+            "kind" : {
+              "type" : "float",
+              "value" : 0.75
+            },
+            "optional" : false
+          } ],
+          "instances" : {
+            "ShippingReports" : [ "default", "HouseholdVendor", "AutoVendor", "MachineryVendor" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "HouseholdVendor"
+        }
+      }
+    }
+  },
+  "connections" : [ ]
+}
