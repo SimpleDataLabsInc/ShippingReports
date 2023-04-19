@@ -59,3 +59,7 @@ releasing a job that can be configured for Development, Staging, or Production e
 *** Release notes for version: 1.1.6 ***
 
 Configured pricing pipeline to run with a scheduled job in Production
+
+*** Release notes for version: 1.1.7 ***
+
+This release includes a configured job to run on Databricks
