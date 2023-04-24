@@ -36,15 +36,14 @@ pipelines:
     artefactID: ''
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-04-11 15:52:04'
+    modifiedAt: '2023-04-24 15:35:33'
     datasets:
       inputs:
       - datasets/OrdersNCustomers
       - datasets/Shipments
       outputs:
       - datasets/Pricing
-    subgraphs:
-    - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.0.7&projectSubscriptionProjectId=3246&path=subgraphs/FoodOrders
+    subgraphs: []
     dependencies: {}
   pipelines/Retail:
     name: Retail
@@ -313,8 +312,8 @@ projectDependencies:
     projectUID: 3246
     projectName: HelloWorld
     repositoryPath: gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=
-    version: HelloWorld/1.1.9
+    version: HelloWorld/1.9.1
     author: null
-    createdAt: '2023-04-18 22:00:11'
-    modifiedAt: '2023-04-18 22:00:11'
+    createdAt: '2023-04-24 15:29:37'
+    modifiedAt: '2023-04-24 15:29:37'
 pipelineConfigurations: {}

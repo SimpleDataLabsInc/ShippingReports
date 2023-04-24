@@ -17,7 +17,8 @@ def Shipments(spark: SparkSession) -> DataFrame:
             "sfPassword": DBUtils(spark).secrets.get(scope = "anyademos", key = "password"),
             "sfDatabase": "retail",
             "sfSchema": "PRICING",
-            "sfWarehouse": "TPC"
+            "sfWarehouse": "TPC",
+            "sfRole": ""
           }
         )\
         .option("dbtable", "ORDERSHIPMENTS")\
