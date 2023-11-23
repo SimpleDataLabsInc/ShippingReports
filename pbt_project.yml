@@ -10,7 +10,6 @@ buildSystemDetails:
   buildSystem: wheel
   author: null
   createdAt: '2023-03-31 18:30:26'
-  modifiedAt: '2023-03-31 18:30:26'
 pipelines:
   pipelines/Pricing:
     name: Pricing
@@ -20,7 +19,6 @@ pipelines:
     artefactID: ''
     language: python
     createdAt: '2022-12-08 21:02:35'
-    modifiedAt: '2023-04-06 06:42:37'
     datasets:
       inputs:
       - datasets/Shipments
@@ -36,7 +34,6 @@ pipelines:
     artefactID: ''
     language: python
     createdAt: '2023-03-13 21:42:50'
-    modifiedAt: '2023-04-24 15:35:33'
     datasets:
       inputs:
       - datasets/OrdersNCustomers
@@ -53,11 +50,10 @@ pipelines:
     artefactID: ''
     language: python
     createdAt: '2023-04-18 21:59:00'
-    modifiedAt: '2023-04-18 22:10:25'
     datasets:
       inputs:
-      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/customers
-      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/orders
+      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.9.1&projectSubscriptionProjectId=3246&path=datasets/customers
+      - gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.9.1&projectSubscriptionProjectId=3246&path=datasets/orders
       outputs:
       - datasets/Report
     subgraphs:
@@ -69,7 +65,6 @@ datasets:
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:05:07'
-    modifiedAt: '2023-03-13 21:45:29'
     mode: batch
     physicalDatasets:
       dev:
@@ -78,13 +73,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2022-12-08 21:05:07'
-        modifiedAt: '2022-12-08 21:05:07'
   datasets/report_shipment_prices:
     name: report_shipment_prices
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2022-12-08 21:12:16'
-    modifiedAt: '2023-03-08 15:13:22'
     mode: batch
     physicalDatasets:
       dev:
@@ -93,13 +86,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2022-12-08 21:12:16'
-        modifiedAt: '2022-12-08 21:12:16'
   datasets/Orders_TPCH:
     name: Orders_TPCH
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-02-25 01:28:30'
-    modifiedAt: '2023-02-25 01:28:30'
     mode: batch
     physicalDatasets:
       dev:
@@ -108,13 +99,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-02-25 01:28:30'
-        modifiedAt: '2023-02-25 01:28:30'
   datasets/Customer_TPCH:
     name: Customer_TPCH
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-02-27 20:51:42'
-    modifiedAt: '2023-03-06 17:01:45'
     mode: batch
     physicalDatasets:
       dev:
@@ -123,13 +112,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-02-27 20:51:42'
-        modifiedAt: '2023-02-27 20:51:42'
   datasets/UnshippedOrders:
     name: UnshippedOrders
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-02 21:16:25'
-    modifiedAt: '2023-03-03 21:09:04'
     mode: batch
     physicalDatasets:
       dev:
@@ -138,13 +125,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-02 21:16:25'
-        modifiedAt: '2023-03-02 21:16:25'
   datasets/UnshippedOrdersEncoded:
     name: UnshippedOrdersEncoded
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-03 21:12:22'
-    modifiedAt: '2023-03-03 22:15:00'
     mode: batch
     physicalDatasets:
       dev:
@@ -153,13 +138,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-03 21:12:22'
-        modifiedAt: '2023-03-03 21:12:22'
   datasets/Unshipped:
     name: Unshipped
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-03 22:17:17'
-    modifiedAt: '2023-03-03 22:19:09'
     mode: batch
     physicalDatasets:
       dev:
@@ -168,13 +151,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-03 22:17:17'
-        modifiedAt: '2023-03-03 22:17:17'
   datasets/testconfig:
     name: testconfig
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-07 22:10:55'
-    modifiedAt: '2023-03-08 14:55:48'
     mode: batch
     physicalDatasets:
       dev:
@@ -183,13 +164,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-07 22:10:55'
-        modifiedAt: '2023-03-07 22:10:55'
   datasets/PricingReport:
     name: PricingReport
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-08 15:15:42'
-    modifiedAt: '2023-03-17 20:50:44'
     mode: batch
     physicalDatasets:
       dev:
@@ -198,13 +177,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-08 15:15:42'
-        modifiedAt: '2023-03-08 15:15:42'
   datasets/JoinedShippingData:
     name: JoinedShippingData
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-13 23:11:29'
-    modifiedAt: '2023-03-16 18:58:41'
     mode: batch
     physicalDatasets:
       dev:
@@ -213,13 +190,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-13 23:11:29'
-        modifiedAt: '2023-03-13 23:11:29'
   datasets/OrdersNCustomers:
     name: OrdersNCustomers
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-14 14:42:21'
-    modifiedAt: '2023-03-14 14:42:21'
     mode: batch
     physicalDatasets:
       dev:
@@ -228,13 +203,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-14 14:42:21'
-        modifiedAt: '2023-03-14 14:42:21'
   datasets/Pricing:
     name: Pricing
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-03-17 20:41:15'
-    modifiedAt: '2023-03-23 19:31:47'
     mode: batch
     physicalDatasets:
       dev:
@@ -243,13 +216,11 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-03-17 20:41:15'
-        modifiedAt: '2023-03-17 20:41:15'
   datasets/Report:
     name: Report
     description: ''
     author: sparklearner123@gmail.com
     createdAt: '2023-04-18 22:03:00'
-    modifiedAt: '2023-04-18 22:03:00'
     mode: batch
     physicalDatasets:
       dev:
@@ -258,7 +229,6 @@ datasets:
         description: ''
         author: sparklearner123@gmail.com
         createdAt: '2023-04-18 22:03:00'
-        modifiedAt: '2023-04-18 22:03:00'
 templates: {}
 jobs:
   jobs/WeeklyPricingReportPerVendor:
@@ -282,15 +252,40 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: true
+    enabled: false
     createdAt: '2023-03-20 20:44:37'
-    modifiedAt: '2023-03-22 21:44:56'
     author: sparklearner123@gmail.com
+  jobs/RetailJob:
+    name: RetailJob
+    description: ''
+    fabricUID: 990
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 1 12 ? * 3 *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/PricingBySegment
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2023-04-27 00:23:50'
+    author: sparklearner123@gmail.com
+gemContainer:
+  languageVersion: '3.10'
+  gemLibsVersion: 1.3.4.0
+  gems: {}
 functions:
   author: null
   createdAt: '2023-03-31 18:30:26'
-  modifiedAt: '2023-03-31 18:30:26'
-  gems: {}
   udfs: {}
   udafs: {}
   expressions: {}
@@ -303,8 +298,11 @@ subgraphs:
     artefactID: ''
     mode: batch
     createdAt: '2023-04-18 22:10:12'
-    modifiedAt: '2023-04-18 22:10:12'
 sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies: []
 projectDependencies:
@@ -313,7 +311,23 @@ projectDependencies:
     projectName: HelloWorld
     repositoryPath: gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=
     version: HelloWorld/1.9.1
+    isDefault: false
     author: null
     createdAt: '2023-04-24 15:29:37'
-    modifiedAt: '2023-04-24 15:29:37'
+  '12654':
+    projectUID: 12654
+    projectName: ProphecySparkBasicsPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
+    version: 0.0.5
+    isDefault: true
+    author: null
+    createdAt: '2023-10-23 15:08:54'
+  '12655':
+    projectUID: 12655
+    projectName: ProphecyWarehousePython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
+    version: 0.0.2
+    isDefault: true
+    author: null
+    createdAt: '2023-09-28 08:42:10'
 pipelineConfigurations: {}

@@ -1,6 +1,7 @@
 from pyspark.sql import *
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
+from prophecy.utils import *
 from retail.config.ConfigStore import *
 from retail.udfs.UDFs import *
 from prophecy.utils import *
@@ -12,8 +13,7 @@ def pipeline(spark: SparkSession) -> None:
     df_PerCustomer = PerCustomer(spark, df_Customers, df_Orders)
     df_TotalByCustomer = TotalByCustomer(spark, df_PerCustomer)
     df_DataCleanup = DataCleanup(spark, Config.DataCleanup, df_TotalByCustomer)
-    df_FullName = FullName(spark, df_DataCleanup)
-    WriteReport(spark, df_FullName)
+    WriteReport(spark, df_DataCleanup)
 
 def main():
     spark = SparkSession.builder\
@@ -25,8 +25,15 @@ def main():
                 .newSession()
     Utils.initializeFromArgs(spark, parse_args())
     spark.conf.set("prophecy.metadata.pipeline.uri", "pipelines/Retail")
-    
-    MetricsCollector.start(spark = spark, pipelineId = "pipelines/Retail")
+    registerUDFs(spark)
+
+    try:
+        
+        MetricsCollector.start(spark = spark, pipelineId = "pipelines/Retail", config = Config)
+    except :
+        
+        MetricsCollector.start(spark = spark, pipelineId = "pipelines/Retail")
+
     pipeline(spark)
     MetricsCollector.end(spark)
 

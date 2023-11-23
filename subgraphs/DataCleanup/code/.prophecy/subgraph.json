@@ -29,19 +29,20 @@
       "isStreaming" : false
     } ],
     "selectedInputFields" : [ ],
-    "isCustomOutputSchema" : false
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
   },
   "properties" : {
     "packageName" : "com.munge"
   },
   "connections" : [ {
-    "id" : "jwCZLGN8fBmpADnN0YRZe",
+    "id" : "cB23m_sIA1F3JWXyvjIgm",
     "source" : "nvo_qMa1HOyaHqAZ5T5KC",
     "sourcePort" : "mt1c17-K7HjinSr4Ncjnv",
     "target" : "negzGNQqpPUMtkFsK3EG9",
     "targetPort" : "FSknFSVkKaaSswz94jNTk"
   }, {
-    "id" : "RtqJg-r8YyHlrvphhyFqF",
+    "id" : "PokhH48aQhcaSEIxjvlhT",
     "source" : "negzGNQqpPUMtkFsK3EG9",
     "sourcePort" : "On6Iln9yU-SkRhxokPMne",
     "target" : "nvo_qMa1HOyaHqAZ5T5KC",
@@ -71,7 +72,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ ],
@@ -79,6 +81,12 @@
           "format" : "sql",
           "expression" : "true"
         }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.5&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.0.5"
       }
     }
   },
