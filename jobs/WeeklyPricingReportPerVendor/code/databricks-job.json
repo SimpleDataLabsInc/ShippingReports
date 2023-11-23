@@ -2,17 +2,19 @@
   "fabric_id" : "990",
   "components" : [ {
     "PipelineComponent" : {
-      "id" : "pipelines/PricingBySegment",
-      "nodeName" : "AutoVendor",
       "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl",
-      "language" : "python"
+      "nodeName" : "AutoVendor",
+      "id" : "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT",
+      "language" : "python",
+      "pipelineId" : "pipelines/PricingBySegment"
     }
   }, {
     "PipelineComponent" : {
-      "id" : "pipelines/PricingBySegment",
-      "nodeName" : "HouseholdVendor",
       "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl",
-      "language" : "python"
+      "nodeName" : "HouseholdVendor",
+      "id" : "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX",
+      "language" : "python",
+      "pipelineId" : "pipelines/PricingBySegment"
     }
   } ],
   "request" : {
@@ -23,22 +25,21 @@
       "new_cluster" : {
         "spark_version" : "11.3.x-scala2.12",
         "node_type_id" : "i3.xlarge",
-        "spark_conf" : {
-          "prophecy.metadata.fabric.id" : "990",
-          "prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/WeeklyPricingReportPerVendor",
-          "prophecy.metadata.is.interactive.run" : "false",
-          "prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
-          "prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
-          "prophecy.packages.path" : "{\"pipelines/PricingBySegment\":\"dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl\"}",
-          "prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
-          "prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__"
-        },
+        "driver_node_type_id" : "i3.xlarge",
         "num_workers" : 1,
-        "aws_attributes" : {
-          "first_on_demand" : 1,
-          "availability" : "SPOT_WITH_FALLBACK"
-        },
-        "driver_node_type_id" : "i3.xlarge"
+        "spark_conf" : {
+          "spark.prophecy.metadata.fabric.id" : "990",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/WeeklyPricingReportPerVendor",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : 1411,
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.prophecy.packages.path" : "{\"pipelines/PricingBySegment\":\"dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl\"}",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.databricks.isv.product" : "prophecy",
+          "spark.prophecy.execution.metrics.disabled" : false
+        }
       }
     } ],
     "email_notifications" : { },
@@ -48,15 +49,15 @@
       "python_wheel_task" : {
         "package_name" : "ShippingBySegment",
         "entry_point" : "main",
-        "parameters" : [ "-i", "AutoVendor" ]
+        "parameters" : [ "-i", "AutoVendor", "-O", "{}" ]
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.0.7"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.35"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.4.2"
+          "package" : "prophecy-libs==1.7.0"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl"
@@ -69,15 +70,15 @@
       "python_wheel_task" : {
         "package_name" : "ShippingBySegment",
         "entry_point" : "main",
-        "parameters" : [ "-i", "HouseholdVendor" ]
+        "parameters" : [ "-i", "HouseholdVendor", "-O", "{}" ]
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.0.7"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.35"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.4.2"
+          "package" : "prophecy-libs==1.7.0"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl"
@@ -89,10 +90,12 @@
     "schedule" : {
       "quartz_cron_expression" : "0 0 0 ? * 3 *",
       "timezone_id" : "GMT",
-      "pause_status" : "UNPAUSED"
+      "pause_status" : "PAUSED"
     }
   },
   "cluster_mode" : {
     "clusterMode" : "Single"
-  }
+  },
+  "secret_scope" : "prophecy_jobs_2155",
+  "sorted_processes" : [ "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT", "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX" ]
 }

@@ -1,0 +1,105 @@
+{
+  "fabric_id" : "990",
+  "components" : [ {
+    "DBTComponent" : {
+      "profilePath" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/CaliJaffleShop/0.0.3/RetailJob/DBT_0-64849351/profiles.yml",
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/CaliJaffleShop/0.0.3/RetailJob/DBT_0-64849351/dbt_script.py",
+      "nodeName" : "DBT_0",
+      "projectId" : "7286",
+      "id" : "FJ4k59DW_97o5i9IVkSXa$$7X0ukFYLZIj3BATZliqM-",
+      "language" : "sql",
+      "componentFilesDirectory" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/CaliJaffleShop/0.0.3/RetailJob/DBT_0-64849351",
+      "sqlFabricId" : "1998",
+      "releaseVersion" : "CaliJaffleShop/0.0.3",
+      "content" : "\nimport subprocess\nimport sys\nimport os\nimport tempfile\nimport shlex\nimport re\n\ngit_clone_command = \"git clone https://github.com/SimpleDataLabsInc/CaliJaffleShop --branch dev/Anya --single-branch /tmp/DBT_0/982ae37a-f787-4b6f-b642-58599a3d7639\"\ndbt_working_dir = \"/tmp/DBT_0/982ae37a-f787-4b6f-b642-58599a3d7639\"\ndbt_commands = ['''dbt  deps --profile run_profile''','''dbt  seed --profile run_profile''','''dbt  run --profile run_profile''']\ngit_update_cmds = ['add-apt-repository -y ppa:git-core/ppa', 'apt update', 'apt install -y git']\n\ndef run_dbt():\n\n    def run_cmd(cmd, cwd, env, shell = False, split=True):\n        try:\n            cmds = shlex.split(cmd) if split else cmd\n            result = subprocess.run(cmds, capture_output=True, cwd=cwd, env=env, check=True, text=True, shell=shell)\n            print(result.stdout)\n            return result.stdout\n        except subprocess.CalledProcessError as error:\n            print(error.output)\n            print(f\"The command failed with exit status {error.returncode}\")\n            error_stderr = error.stderr\n            if len(error_stderr) != 0 and not error_stderr.isspace():\n                print(f\"Error message: {error_stderr}\")\n            sys.exit(1)\n\n\n    def update_git():\n        with tempfile.NamedTemporaryFile(mode='w', delete=False) as f:\n            f.write('''\n#!/bin/bash\n\ntarget_version=\"2.33.1\"\n\n# Get the Git version\ngit_version=$(git --version | awk '{print $3}')\n\n# Compare versions using 'sort' command\nif [[ \"$(echo -e \"$git_version\\n$target_version\" | sort -V | head -n1)\" == \"$target_version\" ]]; then\n  echo \"Git version is $git_version\"\nelse\n  echo \"Git version is $git_version, needs an upgrade\"\n  add-apt-repository -y ppa:git-core/ppa\n  apt update\n  apt install -y git\n  echo \"Git version upgraded to $(git --version | awk '{print $3}')\"\nfi\n\n''')\n            os.chmod(f.name, 0o700)\n\n        cmd = f'bash {f.name}'\n        run_cmd(cmd, \".\", os.environ)\n\n        os.unlink(f.name)\n\n\n    def get_secret():\n        try:\n            return dbutils.secrets.get(\"prophecy_jobs_2155\", \"RetailJob-4553-DBT_0-64849351\")\n        except Exception as e:\n            print(\"Couldn't get secret\")\n            return \"\"\n\n\n    secret = get_secret()\n    db_token = \"\"\n    git_token = \"\"\n    semi_colon_hit = False\n\n\n    for ch in secret:\n        if (ch == ';'):\n            semi_colon_hit = True\n        elif (semi_colon_hit):\n            git_token = git_token + ch\n        else:\n            db_token = db_token + ch\n\n    secret = \"\"\n\n    def move_profiles_to_current_dir():\n        dbutils.fs.cp(\"dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/CaliJaffleShop/0.0.3/RetailJob/DBT_0-64849351/profiles.yml\", \"file:/tmp/DBT_0/982ae37a-f787-4b6f-b642-58599a3d7639/profiles.yml\")\n\n    def add_token_to_profile():\n        with open(\"/tmp/DBT_0/982ae37a-f787-4b6f-b642-58599a3d7639/profiles.yml\", \"r+\") as f:\n            data = f.read()\n            data = data.replace(f'{{{{ TOKEN }}}}', db_token)\n            f.seek(0)\n            f.write(data)\n            f.truncate()\n\n\n    def remove_profile():\n        try:\n            os.remove(\"/tmp/DBT_0/982ae37a-f787-4b6f-b642-58599a3d7639/profiles.yml\")\n            print(f'Successfully deleted generated profile')\n        except OSError as e:\n            print(f'Could not delete generated profile {e}')\n\n\n    def prophecy_exec():\n        # Update git to latest version, 2.25.1 in Databricks doesn't support sparse clone\n        update_git()\n\n        # Create a temporary script to output the token\n        with tempfile.NamedTemporaryFile(mode='w', delete=False) as f:\n            f.write(f'#!/bin/sh\\necho {git_token}\\n')\n            os.chmod(f.name, 0o700)\n\n        # Set the GIT_ASKPASS environment variable to the path of the script\n        env = os.environ.copy()\n        env['GIT_ASKPASS'] = f.name\n\n        # Clone the repository\n        run_cmd(git_clone_command, cwd=\".\", env=env)\n        print(\"Repository clone complete\")\n\n        move_profiles_to_current_dir()\n        add_token_to_profile()\n\n        print(\"Running dbt commands\")\n\n        for cmd in dbt_commands:\n            run_cmd(cmd, cwd=dbt_working_dir, env=env)\n\n        # Clean up the temporary script\n        os.unlink(f.name)\n\n    prophecy_exec()\n    git_token = \"\"\n    db_token = \"\"\n\nrun_dbt()\n",
+      "profileContent" : "run_profile:\n  target: profile_target\n  outputs:\n    profile_target:\n      type: databricks\n      schema: default\n      host: dbc-c7a6e417-e902.cloud.databricks.com\n      http_path: /sql/1.0/warehouses/7294aec8324aa21c\n      token: {{ TOKEN }}\n",
+      "secretKey" : "RetailJob-4553-DBT_0-64849351"
+    }
+  }, {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl",
+      "nodeName" : "Pipeline_1",
+      "id" : "WKgBuh6bQz7WBczhOmhNH$$WvT3Xx-vGTsxWVZdAApM-",
+      "language" : "python",
+      "pipelineId" : "pipelines/PricingBySegment"
+    }
+  } ],
+  "request" : {
+    "format" : "MULTI_TASK",
+    "name" : "RetailJob",
+    "job_clusters" : [ {
+      "job_cluster_key" : "RetailJob_default_small",
+      "new_cluster" : {
+        "spark_version" : "11.3.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "driver_node_type_id" : "i3.xlarge",
+        "num_workers" : 1,
+        "spark_conf" : {
+          "spark.prophecy.metadata.fabric.id" : "990",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/RetailJob",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : 1411,
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.prophecy.packages.path" : "{\"pipelines/PricingBySegment\":\"dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl\"}",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.databricks.isv.product" : "prophecy",
+          "spark.prophecy.execution.metrics.disabled" : false
+        }
+      }
+    } ],
+    "email_notifications" : { },
+    "tasks" : [ {
+      "task_key" : "DBT_0",
+      "job_cluster_key" : "RetailJob_default_small",
+      "spark_python_task" : {
+        "python_file" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/CaliJaffleShop/0.0.3/RetailJob/DBT_0-64849351/dbt_script.py"
+      },
+      "libraries" : [ {
+        "pypi" : {
+          "package" : "dbt-databricks>=1.5.0,<2.0.0"
+        }
+      } ],
+      "email_notifications" : { },
+      "max_retries" : 0
+    }, {
+      "task_key" : "Pipeline_1",
+      "job_cluster_key" : "RetailJob_default_small",
+      "python_wheel_task" : {
+        "package_name" : "ShippingBySegment",
+        "entry_point" : "main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.35"
+        }
+      }, {
+        "pypi" : {
+          "package" : "prophecy-libs==1.7.0"
+        }
+      }, {
+        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/ShippingBySegment-1.0-py3-none-any.whl"
+      } ],
+      "email_notifications" : { },
+      "max_retries" : 0
+    } ],
+    "max_concurrent_runs" : 1,
+    "schedule" : {
+      "quartz_cron_expression" : "0 1 12 ? * 3 *",
+      "timezone_id" : "UTC",
+      "pause_status" : "PAUSED"
+    },
+    "git_source" : {
+      "git_url" : "https://github.com/SimpleDataLabsInc/CaliJaffleShop",
+      "git_provider" : "gitHub",
+      "git_branch" : "dev/Anya"
+    }
+  },
+  "cluster_mode" : {
+    "clusterMode" : "Single"
+  },
+  "secret_scope" : "prophecy_jobs_2155",
+  "sorted_processes" : [ "FJ4k59DW_97o5i9IVkSXa$$7X0ukFYLZIj3BATZliqM-", "WKgBuh6bQz7WBczhOmhNH$$WvT3Xx-vGTsxWVZdAApM-" ]
+}
