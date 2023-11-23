@@ -2,9 +2,10 @@
   "metainfo" : {
     "type" : "Databricks",
     "fabricId" : "990",
-    "jobId" : "jobs/WeeklyPricingReportPerVendor",
-    "name" : "WeeklyPricingReportPerVendor",
-    "schedule" : "0 0 0 ? * 3 *",
+    "jobId" : "jobs/RetailJob",
+    "name" : "RetailJob",
+    "schedule" : "0 1 12 ? * 3 *",
+    "scheduleTimeZone" : "UTC",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
@@ -160,22 +161,22 @@
     } ]
   },
   "processes" : {
-    "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT" : {
-      "id" : "Qbgj8lQQMux9cdumcBVav$$JnXwx9FxVlUAiQcY7bNRT",
-      "component" : "Pipeline",
+    "FJ4k59DW_97o5i9IVkSXa$$7X0ukFYLZIj3BATZliqM-" : {
+      "id" : "FJ4k59DW_97o5i9IVkSXa$$7X0ukFYLZIj3BATZliqM-",
+      "component" : "DBT",
       "metadata" : {
-        "label" : "AutoVendor",
-        "slug" : "AutoVendor",
+        "label" : "DBT_0",
+        "slug" : "DBT_0",
         "x" : 140,
         "y" : 160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "HXOpvI5dA_QKv2vVP1G_U$$N6PI8GHQte2ysXyw8MTnU",
+          "id" : "Ztfh72I9cokIc_nTQbC9S$$lW0o6yEMWCytvQjfhgREP",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "R1tBaXfYsDZNGZuFLL6g3$$6yO76HjQmI7AQtvEaTWOZ",
+          "id" : "ayPnLSaWFrYLXK0p_sfD1$$Y2v3YhWCGrPVjDzdZ5a_4",
           "slug" : ""
         } ]
       },
@@ -189,51 +190,61 @@
         }
       },
       "properties" : {
-        "pipelineId" : "pipelines/PricingBySegment",
-        "configurations" : {
-          "schema" : [ {
-            "name" : "market_segment",
-            "optional" : false,
-            "kind" : {
-              "type" : "string",
-              "value" : "AUTOMOBILE"
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          }, {
-            "name" : "wholesale_discount",
-            "optional" : false,
-            "kind" : {
-              "type" : "float",
-              "value" : 0.03
-            },
-            "isReferenced" : false,
-            "isWorkflowNodeConfiguration" : false
-          } ],
-          "instances" : {
-            "ShippingReports" : [ "default", "HouseholdVendor", "AutoVendor", "MachineryVendor" ]
-          },
-          "overrides" : { },
-          "selectedInstance" : "AutoVendor"
-        }
+        "execSeed" : true,
+        "execRun" : true,
+        "gitEntity" : "branch",
+        "projectId" : "7286",
+        "runOnlyModel" : "false",
+        "loadingModels" : false,
+        "profile" : "run_profile",
+        "sqlFabricId" : "1998",
+        "gitEntityValue" : "dev/Anya",
+        "execDeps" : true,
+        "execTest" : false,
+        "currentProjectModels" : [ {
+          "label" : "stg_customers",
+          "value" : "stg_customers",
+          "id" : "7286/.prophecy/metadata/sqlmodels/stg_customers",
+          "name" : "stg_customers"
+        }, {
+          "label" : "stg_payments",
+          "value" : "stg_payments",
+          "id" : "7286/.prophecy/metadata/sqlmodels/stg_payments",
+          "name" : "stg_payments"
+        }, {
+          "label" : "customers",
+          "value" : "customers",
+          "id" : "7286/.prophecy/metadata/sqlmodels/customers",
+          "name" : "customers"
+        }, {
+          "label" : "orders",
+          "value" : "orders",
+          "id" : "7286/.prophecy/metadata/sqlmodels/orders",
+          "name" : "orders"
+        }, {
+          "label" : "stg_orders",
+          "value" : "stg_orders",
+          "id" : "7286/.prophecy/metadata/sqlmodels/stg_orders",
+          "name" : "stg_orders"
+        } ]
       }
     },
-    "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX" : {
-      "id" : "jubMjadEvBFV8QKLne1tj$$-e0zITFgQsUJg-L0u0vOX",
+    "WKgBuh6bQz7WBczhOmhNH$$WvT3Xx-vGTsxWVZdAApM-" : {
+      "id" : "WKgBuh6bQz7WBczhOmhNH$$WvT3Xx-vGTsxWVZdAApM-",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "HouseholdVendor",
-        "slug" : "HouseholdVendor",
-        "x" : 440,
+        "label" : "Pipeline_1",
+        "slug" : "Pipeline_1",
+        "x" : 280,
         "y" : 160
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Sy1M6vohuxSNxqqU_rP2n$$_4aeZPcovh8DWHMWcJQAS",
+          "id" : "n4w81GYCQxnJjC8ofoTNh$$ukhPkGbI-03pCzl_IpGry",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "x-2DWZy7YuWqbK09z8Yus$$QWo-lyjNWID2jzUN2nGQx",
+          "id" : "45R0MXW0Pvf537h2CFFMy$$R-JxeitXbevQ2FZLscb1T",
           "slug" : ""
         } ]
       },
@@ -254,7 +265,7 @@
             "optional" : false,
             "kind" : {
               "type" : "string",
-              "value" : "HOUSEHOLD"
+              "value" : "MACHINERY"
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
@@ -263,7 +274,7 @@
             "optional" : false,
             "kind" : {
               "type" : "float",
-              "value" : 0.75
+              "value" : 0.1
             },
             "isReferenced" : false,
             "isWorkflowNodeConfiguration" : false
@@ -272,7 +283,7 @@
             "ShippingReports" : [ "default", "HouseholdVendor", "AutoVendor", "MachineryVendor" ]
           },
           "overrides" : { },
-          "selectedInstance" : "HouseholdVendor"
+          "selectedInstance" : "default"
         }
       }
     }

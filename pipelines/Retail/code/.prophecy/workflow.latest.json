@@ -1,6 +1,10 @@
 {
   "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
     "id" : "1",
+    "uri" : "pipelines/Retail",
     "language" : "python",
     "fabricId" : "990",
     "frontEndLanguage" : "sql",
@@ -9,7 +13,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "sparklearner123gmail.com_team.shippingreports.functions",
-      "sharedFunctionPackageNames" : [ "sparklearner123gmail.com_team.helloworld.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "sparklearner123gmail.com_team.helloworld.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -25,7 +29,8 @@
             "fields" : [ ]
           },
           "optional" : false,
-          "isWorkflowNodeConfiguration" : true
+          "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
         } ]
       },
       "oldCommon" : {
@@ -44,6 +49,14 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "3246",
       "projectName" : "HelloWorld",
       "externalDependencies" : [ ]
@@ -78,23 +91,17 @@
     "target" : "q-vQCxK7Lpf8WWWfGDH3m$$Khlp9uWsXmxraCNQsvmC-",
     "targetPort" : "ubN-1uBYaGTok182ngYPw$$RgiPQ3MPSZQEvCjI22foT"
   }, {
-    "id" : "MsWHX9Ry6FY2Yl87YrBN1",
-    "source" : "D6ukXZ3Dbs3F0SQbefgVh$$CI13IwZIQ7wbrcNoz31p0",
-    "sourcePort" : "wzNHIkb2k74VxHvUQfakc$$x7yitaWxHtp4pmaf6icEO",
+    "id" : "ZGkn4hB5jqQRTDnK57dVt$$nqvLMPoHQigS4jGx4NHpW",
+    "source" : "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ",
+    "sourcePort" : "EcyPhPxffkz6v4_HGOnvo$$1FNDQveAaXu1TVCNXGZRn",
     "target" : "papxmiPsl-a_TMx9j5rav$$b7aXk8WN8Vv7OeUvsG0mr",
     "targetPort" : "8ljgsk0sGi47XM79B4Iqz$$CnK7ol-kSsShsbhtgSk_p"
   }, {
-    "id" : "3lcjKi1uC3fBSKn4Tq-2b$$2ojEAHIpZRIuIWE4Mw9ks",
+    "id" : "C07PWS1uxBwktkkYAg657",
     "source" : "q-vQCxK7Lpf8WWWfGDH3m$$Khlp9uWsXmxraCNQsvmC-",
     "sourcePort" : "T0p82EJd5wMhwZ75qBy4N$$OjPmKFIzPnOYCZJz87dOW",
-    "target" : "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9",
-    "targetPort" : "mt1c17-K7HjinSr4Ncjnv$$N4d8UmdwnInKaQM1XgKY5"
-  }, {
-    "id" : "HIvdfsAhUC6SnYvni2p3s",
-    "source" : "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9",
-    "sourcePort" : "EcyPhPxffkz6v4_HGOnvo$$ljsyEVs1IvVOGYC5qre7m",
-    "target" : "D6ukXZ3Dbs3F0SQbefgVh$$CI13IwZIQ7wbrcNoz31p0",
-    "targetPort" : "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de"
+    "target" : "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ",
+    "targetPort" : "mt1c17-K7HjinSr4Ncjnv$$dXZH11F779gRi0UIbyc3x"
   } ],
   "processes" : {
     "papxmiPsl-a_TMx9j5rav$$b7aXk8WN8Vv7OeUvsG0mr" : {
@@ -103,7 +110,7 @@
       "metadata" : {
         "label" : "WriteReport",
         "slug" : "WriteReport",
-        "x" : 1120,
+        "x" : 900,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -152,22 +159,14 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
-            }, {
-              "name" : "full_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
             } ]
           },
           "isStreaming" : false
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/Report"
@@ -335,7 +334,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "conditions" : [ {
@@ -396,124 +396,19 @@
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.5&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "D6ukXZ3Dbs3F0SQbefgVh$$CI13IwZIQ7wbrcNoz31p0" : {
-      "id" : "D6ukXZ3Dbs3F0SQbefgVh$$CI13IwZIQ7wbrcNoz31p0",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "FullName",
-        "slug" : "FullName",
-        "x" : 900,
-        "y" : 220,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de",
-          "slug" : "TotalByCustomer",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "first_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "last_name",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amounts",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ {
-          "id" : "wzNHIkb2k74VxHvUQfakc$$x7yitaWxHtp4pmaf6icEO",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
-      },
-      "properties" : {
-        "importLanguage" : "python",
-        "expressions" : [ {
-          "target" : "customer_id",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "customer_id"
-          },
-          "description" : ""
-        }, {
-          "target" : "first_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "first_name"
-          },
-          "description" : ""
-        }, {
-          "target" : "last_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "last_name"
-          },
-          "description" : ""
-        }, {
-          "target" : "amounts",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "round(amounts)"
-          },
-          "description" : ""
-        }, {
-          "target" : "full_name",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "concat(first_name, \" \", last_name)"
-          },
-          "description" : ""
-        } ],
-        "importString" : "",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de##last_name", "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de##first_name", "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de##customer_id", "sbriYx1QUTv-zRYzUOBaV$$4JQzVcQfLRVokSVxN73de##amounts" ]
-      }
-    },
-    "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9" : {
-      "id" : "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9",
+    "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ" : {
+      "id" : "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ",
       "component" : "Subgraph",
       "metadata" : {
         "label" : "DataCleanup",
         "slug" : "DataCleanup",
-        "x" : 680,
+        "x" : 720,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -522,7 +417,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "mt1c17-K7HjinSr4Ncjnv$$N4d8UmdwnInKaQM1XgKY5",
+          "id" : "mt1c17-K7HjinSr4Ncjnv$$dXZH11F779gRi0UIbyc3x",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -567,33 +462,34 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "EcyPhPxffkz6v4_HGOnvo$$ljsyEVs1IvVOGYC5qre7m",
+          "id" : "EcyPhPxffkz6v4_HGOnvo$$1FNDQveAaXu1TVCNXGZRn",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
+        "packageName" : "com.munge",
         "externalId" : "subgraphs/DataCleanup",
-        "name" : "DataCleanup",
-        "packageName" : "com.munge"
+        "name" : "DataCleanup"
       },
       "connections" : [ {
-        "id" : "jwCZLGN8fBmpADnN0YRZe",
-        "source" : "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9",
-        "sourcePort" : "mt1c17-K7HjinSr4Ncjnv$$N4d8UmdwnInKaQM1XgKY5",
-        "target" : "negzGNQqpPUMtkFsK3EG9$$oz4iBnMeMviBZHvG_pNbb",
-        "targetPort" : "FSknFSVkKaaSswz94jNTk$$jnulM44grMsopVC8Qh09t"
+        "id" : "cB23m_sIA1F3JWXyvjIgm",
+        "source" : "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ",
+        "sourcePort" : "mt1c17-K7HjinSr4Ncjnv$$dXZH11F779gRi0UIbyc3x",
+        "target" : "negzGNQqpPUMtkFsK3EG9$$jgymzdnGgfluFr47PGbqR",
+        "targetPort" : "FSknFSVkKaaSswz94jNTk$$ou_4WHwWAidAOkT1ZsFN6"
       }, {
-        "id" : "RtqJg-r8YyHlrvphhyFqF",
-        "source" : "negzGNQqpPUMtkFsK3EG9$$oz4iBnMeMviBZHvG_pNbb",
-        "sourcePort" : "On6Iln9yU-SkRhxokPMne$$BWJsgBwPTr_oADFuxZOd4",
-        "target" : "nvo_qMa1HOyaHqAZ5T5KC$$ceCPf3YxiFM01k-P1_XU9",
-        "targetPort" : "EcyPhPxffkz6v4_HGOnvo$$ljsyEVs1IvVOGYC5qre7m"
+        "id" : "PokhH48aQhcaSEIxjvlhT",
+        "source" : "negzGNQqpPUMtkFsK3EG9$$jgymzdnGgfluFr47PGbqR",
+        "sourcePort" : "On6Iln9yU-SkRhxokPMne$$pwREopvtFhBGxuW-qeleD",
+        "target" : "nvo_qMa1HOyaHqAZ5T5KC$$wKkF_RhwBuiC4WeazQtUJ",
+        "targetPort" : "EcyPhPxffkz6v4_HGOnvo$$1FNDQveAaXu1TVCNXGZRn"
       } ],
       "processes" : {
-        "negzGNQqpPUMtkFsK3EG9$$oz4iBnMeMviBZHvG_pNbb" : {
-          "id" : "negzGNQqpPUMtkFsK3EG9$$oz4iBnMeMviBZHvG_pNbb",
+        "negzGNQqpPUMtkFsK3EG9$$jgymzdnGgfluFr47PGbqR" : {
+          "id" : "negzGNQqpPUMtkFsK3EG9$$jgymzdnGgfluFr47PGbqR",
           "component" : "Filter",
           "metadata" : {
             "label" : "DataCleanup_1",
@@ -607,7 +503,7 @@
           },
           "ports" : {
             "inputs" : [ {
-              "id" : "FSknFSVkKaaSswz94jNTk$$jnulM44grMsopVC8Qh09t",
+              "id" : "FSknFSVkKaaSswz94jNTk$$ou_4WHwWAidAOkT1ZsFN6",
               "slug" : "in0",
               "schema" : {
                 "type" : "struct",
@@ -652,11 +548,12 @@
               "isStreaming" : false
             } ],
             "outputs" : [ {
-              "id" : "On6Iln9yU-SkRhxokPMne$$BWJsgBwPTr_oADFuxZOd4",
+              "id" : "On6Iln9yU-SkRhxokPMne$$pwREopvtFhBGxuW-qeleD",
               "slug" : "out"
             } ],
             "selectedInputFields" : [ ],
-            "isCustomOutputSchema" : false
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
           },
           "properties" : {
             "columnsSelector" : [ ],
@@ -664,6 +561,10 @@
               "format" : "sql",
               "expression" : "true"
             }
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.5&projectSubscriptionProjectId=12654&path=gems/Filter",
+            "projectName" : "ProphecySparkBasicsPython"
           }
         }
       },
@@ -689,10 +590,11 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/orders"
+        "datasetId" : "gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.9.1&projectSubscriptionProjectId=3246&path=datasets/orders"
       }
     },
     "q-vQCxK7Lpf8WWWfGDH3m$$Khlp9uWsXmxraCNQsvmC-" : {
@@ -759,7 +661,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "allIns" : false,
@@ -803,6 +706,10 @@
           "description" : "",
           "_row_id" : null
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.5&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "rPQV7eFEQcw4HJ6222WVG$$Wat6KbDyGMDay8YqxkKT_" : {
@@ -825,10 +732,11 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.1.9&projectSubscriptionProjectId=3246&path=datasets/customers"
+        "datasetId" : "gitUri=http://gitserver:3000/nFfG9w8u_team_2155/nFfG9w8u_project_3246.git&subPath=&tag=HelloWorld/1.9.1&projectSubscriptionProjectId=3246&path=datasets/customers"
       }
     }
   },
@@ -836,6 +744,7 @@
     "inputs" : [ ],
     "outputs" : [ ],
     "selectedInputFields" : [ ],
-    "isCustomOutputSchema" : false
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
   }
 }

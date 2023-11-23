@@ -255,6 +255,30 @@ jobs:
     enabled: true
     createdAt: '2023-03-20 20:44:37'
     author: sparklearner123@gmail.com
+  jobs/RetailJob:
+    name: RetailJob
+    description: ''
+    fabricUID: 990
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 1 12 ? * 3 *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/PricingBySegment
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2023-04-27 00:23:50'
+    author: sparklearner123@gmail.com
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0

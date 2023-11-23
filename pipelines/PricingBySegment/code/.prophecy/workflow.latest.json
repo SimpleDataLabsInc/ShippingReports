@@ -42,7 +42,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "AutoVendor",
+      "selected" : "HouseholdVendor",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
